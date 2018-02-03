@@ -1,0 +1,45 @@
+/* 
+* @Author: Marte
+* @Date:   2017-09-13 17:00:41
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-09-13 17:59:50
+*/
+/*重置样式表*/
+/*==========样式重置===========*/
+html,body{
+    font-size:0.32rem;
+    width:100%;
+    height:100%;
+}
+body,h1,h2,h3,h4,p,a,input,img,ul,li,ol,dl,dt,dd{
+    font-weight:normal;
+    padding:0;
+    margin:0;}
+ul,ol{
+    list-style:none;}
+img{
+    display:block;
+    border:0;}
+
+label{
+    border:0 none;
+}
+input{
+    outline:none;
+    border:0 none;
+    caret-color:#C1272D;
+}
+header,footer,section,main,nav{
+    display:block;}
+body{
+    font-family: Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;
+    color:#3e3e3e;}
+a{
+    text-decoration:none;
+    color:#0dc441;}
+s,i,em{font-style:normal;text-decoration:none;}        
+*{box-sizing:border-box;}
+#app{
+    width:100%;
+    height:100%;
+}
