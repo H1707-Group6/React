@@ -1,0 +1,27 @@
+.details_f{
+    height:100%;
+    .details_fm{
+        width:100%;
+        overflow:hidden;
+        ul{ 
+            overflow-x:auto;    
+            width:26.666667rem;
+            height:12.0rem;
+            li{
+                width:8.0rem;
+                float:left;
+                img{
+                }
+                // &:nth-child(1){
+
+                //     display:flex;
+                //     overflow:hidden;
+                //     img{
+                        
+                //         width:100%;
+                //     }
+                // }
+            }
+        }
+    }
+}
