@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import header from 'hre'
 import * as action from './goodslistAction'
 
 class GoodslistComponent extends Component{

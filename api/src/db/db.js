@@ -5,7 +5,7 @@ var db = mysql.createPool({
     host: "localhost",
     user: 'root',
     password: '',
-    database: 'spw',
+    database: 'flower',
     multipleStatements: true
 })
 
