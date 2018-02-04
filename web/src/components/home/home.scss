@@ -1,1 +1,21 @@
-home.scss
+.home{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	// flex-wrap: wrap;
+	.home_h{
+		height: 1.173333rem;
+		background-color: blue;
+	}
+	.home_m{
+		flex:1;
+		 overflow-x:hidden;
+	    display:flex;
+	    flex-direction: column;
+		background-color: #ccc;
+	}
+	.home_f{
+		height: 1.333333rem;
+		background-color: red;
+	}
+}
