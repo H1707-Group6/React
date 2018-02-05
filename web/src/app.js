@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {Router,hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 
-import store from './rudex/configStore'
+// import store from './rudex/configStore'
 
 import '../node_modules/antd-mobile/dist/antd-mobile.css';
 import "../node_modules/antd/dist/antd.css"
