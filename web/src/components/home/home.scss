@@ -2,20 +2,102 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	// flex-wrap: wrap;
 	.home_h{
 		height: 1.173333rem;
-		background-color: blue;
+		ul{
+			margin: 0.186667rem 0;
+			height: 0.8rem;
+			li{
+				position:relative;
+				float:left;
+				
+				height: 0.8rem;
+				&:first-child{
+					width:2.293333rem;
+					.home_logo{
+						width: 1.866667rem;
+						height: 0.613333rem;
+						background: url("../../assets/imgs/other/logo.png") no-repeat;
+						position:absolute;
+						left: 0.213333rem;top: 0.093333rem;
+					}
+				}
+				&:nth-child(2){
+					width:5.533333rem;
+					position:relative;
+					.homet_search{
+						position:absolute;
+						top: 0.226667rem;left: 0.186667rem;
+						font-size:0.4rem;
+						color:#aaa;
+					}
+					input{
+						width: 5.52rem;
+						height: 0.72rem;
+						margin:0.04rem 0;
+						border-radius:0.08rem;
+						padding-left:0.746667rem;
+						font-size:0.4rem;
+						background-color: #eee;
+					}
+				}
+				&:last-child{
+					width: 2.133333rem;
+					height: 0.8rem;
+					text-align:center;
+
+					a{
+						color:#000;
+						font-size:0.4rem;
+						line-height: 0.8rem;
+						padding:0 0.4rem;
+						
+					}
+				}
+				
+			}
+		}
 	}
 	.home_m{
 		flex:1;
-		 overflow-x:hidden;
+		overflow-x:hidden;
 	    display:flex;
 	    flex-direction: column;
-		background-color: #ccc;
+		
+		.h_banner{
+			.slider-decorator-0{
+				
+				.am-carousel-wrap{
+					float:left;
+				}
+			}
+			.am-carousel-wrap-dot > span{
+				height: 0.213333rem;
+				width: 0.213333rem;
+			}
+			.slider-list{
+				height:4.8rem !important;
+			}
+			
+		}
+		.main_caption{
+			width: 100%;
+			height: 0.746667rem;
+			border-button:0.013333rem solid #ddd;
+			li{
+				float: left;
+				height: 0.746667rem;
+			    color: #9b9b9b;
+			    text-align: center;
+			    line-height: 0.746667rem;
+			    &:last-child #pjCount{
+			    	color:#555;
+			    }
+			}
+		}
 	}
 	.home_f{
 		height: 1.333333rem;
-		background-color: red;
+
 	}
 }
