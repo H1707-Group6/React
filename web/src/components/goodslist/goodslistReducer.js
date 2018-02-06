@@ -1,6 +1,6 @@
 import * as ajaxConstants from '../../contants/ajaxContants'
 
-import * as goodslistContants from '../goodslist/goodslistContants'
+import * as goodslistContants from './goodslistContants'
 
 export default function goodslistReducer(state={},action){
     let newState = JSON.parse(JSON.stringify(state));
@@ -10,6 +10,7 @@ export default function goodslistReducer(state={},action){
             break;
         case ajaxConstants.AJAX_REQUESTED:
             newState.status = 1;
+            console.log(action);
             newState.result = action.result.results;
             break;
         case (ajaxConstants.AJAX_REQUESTERROR || goodslistContants.ADDCART_REQUESTERROR):

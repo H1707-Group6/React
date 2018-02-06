@@ -1,6 +1,6 @@
 import * as ajaxConstants from '../../contants/ajaxContants'
 
-import * as loginContants from './loginContants'
+import * as mineContants from './mineContants'
 
 export default function goodslistReducer(state={},action){
     let newState = JSON.parse(JSON.stringify(state));
@@ -18,4 +18,3 @@ export default function goodslistReducer(state={},action){
             break;
     }
     return newState;
-}
