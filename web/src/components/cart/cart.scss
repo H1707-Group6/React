@@ -9,6 +9,54 @@
     .cart_fm{
         flex:1;
         overflow-y:auto;
+        .cart_table{
+
+            >li{
+                overflow:hidden;
+                padding:0.4rem 0;
+                border-bottom:1px solid#ccc;
+                position:relative;
+                .cart_table1{ 
+                    position:absolute;
+                    left:0.266667rem;
+                    top:50%;
+                    transform:translateY(-50%);
+                   
+                    input{
+                       width:0.266667rem;
+                       height:0.266667rem;
+
+                    }
+                }
+                .cart_table2{
+                    float:left;
+                    width:31%;
+                    padding:0 2%;
+                    padding-left:7%;
+                    img{
+                        width:90%;
+                    }
+                }
+                .cart_table3{
+                    float:left;
+                    width:60%;
+                    p{
+                        &:nth-child(3){    
+                            padding:0.266667rem 0;
+                            .goods_qty{
+                                padding:0 1.066667rem;
+                                >span{
+                                    border:0.013333rem solid #ccc;
+                                    padding:0.066667rem 0.266667rem;
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
     }
     .cart_ff{
         height:1.173333rem;

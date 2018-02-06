@@ -1,6 +1,6 @@
 import * as ajaxConstants from '../../contants/ajaxContants'
 
-import * as goodslistContants from '../goodslist/goodslistContants'
+import * as goodslistContants from './goodslistContants'
 
 export default function goodslistReducer(state={},action){
     let newState = JSON.parse(JSON.stringify(state));

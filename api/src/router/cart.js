@@ -23,9 +23,7 @@ module.exports = {
                     db.update(sql, (result) => {
                         res.send(result);
                     })
-                }
-               
-               
+                }        
             })
         })
         app.get('/getCart',function(req, res){
@@ -33,14 +31,19 @@ module.exports = {
             let sql = `select * from cart where userid = ${userId}`;
             db.select(sql,(result)=>{
                 if(result.data.results.length>0){
-                    console.log(result.data.results )
                     var arrId = result.data.results[0].gid.split(',');
                     sql = '';
                     arrId.map(function(iten){
-                        sql += `select * from goods where id = ${iten};`;
+                        sql += `
+                            select 
+                               *
+                            from 
+                                goods 
+                            where 
+                                id = ${iten};
+                        `;
                     })
                     db.select(sql,(result)=>{
-                        console.log(result)
                         res.send(result);
                     })
                 }
@@ -51,3 +54,14 @@ module.exports = {
        
     }
 }
+  // sql += `
+  //   select 
+  //       g*,
+  //       b.type,
+  //       s.type
+  //   from 
+  //       goods g
+  //       inner join bigtype b on g.bigtype = b.id
+  //       inner join smalltype s on g.smalltype = s.id
+  //   where 
+  //       id = ${iten};

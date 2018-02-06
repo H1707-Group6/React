@@ -17,6 +17,7 @@ class GoodslistComponent extends Component{
         this.props.getGoods()
     }
     goDetalist(gid){
+        sessionStorage.setItem('gid', gid);
         this.props.router.push({
             pathname:'details',
             state:{gid:gid}
@@ -52,7 +53,7 @@ class GoodslistComponent extends Component{
 
 
 let mapStateToProps = (state)=>{
-    // console.log(state.goodslist)
+   
     return {
         ajaxStatus:state.goodslist.status,
         ajaxResult:state.goodslist.result|| []

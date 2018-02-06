@@ -13,6 +13,7 @@ import './details.scss'
 
 var key = '';
 sessionStorage.setItem('userId', 2);
+
 var username = '';
 class GoodslistComponent extends Component{
     state = { 
@@ -20,15 +21,16 @@ class GoodslistComponent extends Component{
         slideIndex: 0,
     }
     componentWillMount(){
-        key = this.props.router.location.state.gid;
+        key = this.props.router.location.state.gid ||sessionStorage.getItem('gid');
+        
         username = sessionStorage.getItem('userId');
         this.props.getDetails(key)
     }
     addCart(){
-        console.log(key,username)
         this.props.addCart(key,username)
     }
     goCart(){
+        console.log(this.props.router.go('cart'))
         this.props.router.push({pathname:'cart'})
     }
     render(){

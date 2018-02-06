@@ -12,23 +12,11 @@ let goodsids = [];
 class CartComponent extends Component {
     componentWillMount(){
         this.props.getCart().then((res)=>{
-            res.results.forEach((iten)=>{
-                iten[0].goodsqty = 1;
-            })
-            for(var i = 0;i<res.results.length;i++){
-                for(var j = i+1;j <res.results.length;j++){
-                    if(res.results[i][0].id == res.results[j][0].id){
-                       
-                        res.results[i][0].goodsqty++;
-                        res.results.splice(j,1);
-                    }
-                }
-            }
-            return res;
        });
     }
     state = {
         text:'购物车',
+        Allcart:''
    
     }
     genOrder(){
@@ -36,8 +24,19 @@ class CartComponent extends Component {
             this.props.getCartList();
         })
     }
-
-    selectItem(indexid, gid, event){
+    updata(event){
+        if(event.target.innerText =='+'){
+            event.target.parentNode.children[1].innerText++;
+          
+        }else if(event.target.innerText =='-'){
+            event.target.parentNode.children[1].innerText--;
+            if(event.target.parentNode.children[1].innerText<=1){
+                event.target.parentNode.children[1].innerText=1;
+            }
+        }
+    }
+    selectItem(gid, event){
+       
         if(event.target.checked){
             if(cartids.indexOf(indexid) < 0){
                 cartids.push(indexid)
@@ -61,18 +60,19 @@ class CartComponent extends Component {
             <div className='cart_f'>
                 <div className = 'cart_h'><Header text = {this.state.text}></Header></div>
                 <div className = 'cart_fm'>
-               
                     {
                         this.props.cartList.map((item) => {
+                            item[0].title=item[0].title.split('----');
                             return (
-                                <ul key={item[0].id}>
+                                <ul key={item[0].id} className = 'cart_table'>
                                     <li>
-                                        <input type="checkbox" onClick={this.selectItem.bind(this, item.indexid, item[0].id)}/>
-
-                                        <img src = {item[0].mainimg}/>
-                                        <p>{item[0].title}</p>
-                                        <p>{item[0].qty}</p>
-                                       
+                                        <div className = 'cart_table1'><input type="checkbox" onClick={this.selectItem.bind(this, item[0].id)}/></div>
+                                        <div className = 'cart_table2'><img src = {item[0].mainimg}/></div>
+                                        <div className = 'cart_table3'>
+                                            <p>{item[0].title[0]}</p>
+                                            <p>{item[0].title[1]}</p>
+                                            <p><span>{item[0].saleprice}</span><i className = 'goods_qty' onClick = {(event)=> this.updata(event)}><span>-</span><span>{item[0].qty}</span><span>+</span></i><span>删除</span></p>
+                                        </div>
                                     </li>
                                 </ul>
                             )
@@ -95,9 +95,29 @@ class CartComponent extends Component {
 }
 
 let mapStateToProps = (state) => {
-    console.log(state.cart.result)
+    var carts = [];
+    if(state.cart.status =='1'){
+        carts = state.cart.result;
+        carts.forEach((iten)=>{
+            iten[0].qty = 1;
+        })
+        goodsQty(carts);
+        function goodsQty(arr){
+            for(var i = 0;i < arr.length;i++){
+                for(var j = i+1;j < arr.length;j++){
+                    if(arr[i][0].id == arr[j][0].id){
+                        arr[i][0].qty++;
+                        arr.splice(j,1);
+                        goodsQty(arr);
+                    }
+                }
+            }
+            return arr;
+        }  
+    }
     return {
-        cartList: state.cart.result || []
+        cartList: state.cart.result || [],
+        
     }
 }
 
