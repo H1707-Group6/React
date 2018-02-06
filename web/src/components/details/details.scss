@@ -17,6 +17,10 @@
     }
     .details_fm{
         flex:1;
+        overflow-y:auto;
+        p{
+            line-height:0.666667rem;
+        }
         .details_img{
             .space-carousel {
               padding: 16px;
@@ -53,7 +57,7 @@
             font-size:0.346667rem;
         }
         .title{
-             padding:0.426667rem 0.213333rem 0.213333rem 0.213333rem;
+            padding:0.426667rem 0.213333rem 0.213333rem 0.213333rem;
             line-height:0.8rem;
              padding-left:0.266667rem;
             font-size:0.373333rem;
@@ -79,15 +83,31 @@
 
             }
         }
+        .Order_evaluation{
+            border-top:0.4rem solid #ccc;
+            h4{
+                line-height:0.8rem;
+                display:flex;
+                justify-content: space-between;
+                padding:0 0.266667rem;
+                span{
+                    font-size:0.426667rem;
+                    &:nth-child(2){
+                        color:#ccc;
+                        
+                    }
+                }
+            }
+        }
     }
     .details_ff{
         height:1.173333rem;
         border-top:0.013333rem solid #ccc;
         display:flex;
+
         p{
             width:50%;
             >ul{
-               
                 display:flex;
                 justify-content:space-between;
                 li{
