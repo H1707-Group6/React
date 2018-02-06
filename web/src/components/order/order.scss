@@ -1,0 +1,13 @@
+.order{
+	display: flex;
+	flex-direction:column;
+	 header{
+        height:1.12rem;
+        background:red;
+    }
+	main{
+		flex:1;
+		overflow-y:auto;
+		
+	}
+}

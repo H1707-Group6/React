@@ -8,11 +8,10 @@ module.exports = {
         
             var sql = `
                 select                           
-                    g.*,                  
-                    s.*   
+                    g.*
                 from
                     goods g 
-                    inner join smalltype s on g.smalltype = s.smallid
+                    inner join smalltype s on g.smalltype = s.id
                 where
                     type = '${keyword}';
             `;
@@ -24,24 +23,15 @@ module.exports = {
             var goodid = req.query.gid;
             var sql = `
             select                           
-                g.*,                  
-                gr.*   
+                *
             from
-                    goods g 
-                    inner join grade gr on g.id = gr.gid
+                goods 
             where
                 id = ${goodid}
             `;   
             db.select(sql, function(data){
-                if(data.data.results==''){  
-                    sql = `select * from goods where id = ${goodid}`
-                    db.select(sql,function(data){
-                        res.send(data);
-                    })
-                }else{
+               
                     res.send(data);
-
-                }
                 
             })
         })
@@ -107,5 +97,31 @@ module.exports = {
                 res.send(data);
             })
         })
+
+        // app.get('/getdetails',function(req, res){
+        //     var goodid = req.query.gid;
+        //     var sql = `
+        //     select                           
+        //         g.*
+        //     from
+        //             goods g 
+        //             inner join grade gr on g.id = gr.id
+        //     where
+        //         id = ${goodid}
+        //     `;   
+        //     db.select(sql, function(data){
+        //         console.log(data.data.results)
+        //         if(data.data.results.length<=0){  
+        //             sql = `select * from goods where id = ${goodid}`
+        //             db.select(sql,function(data){
+        //                 res.send(data);
+        //             })
+        //         }else{
+        //             res.send(data);
+
+        //         }
+                
+        //     })
+        // })
     }
 }

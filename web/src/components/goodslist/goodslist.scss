@@ -5,8 +5,7 @@
     flex-direction: column;
 
     .goodslist_fh{
-        height:1.066667rem;
-        background:#ccc;
+        height:1.173333rem;
     }
     .goodslist_fm{
         flex:1;
@@ -24,7 +23,7 @@
                     width:100%;
                     border:0.013333rem  solid#ccc;
                 }
-                &:nth-child(2){
+                &:nth-child(3){
                     padding:0.026667rem;
                     font-size:0.346667rem;
                     height:0.533333rem;
@@ -34,7 +33,7 @@
                     white-space:nowrap;
 
                 }
-                &:nth-child(3){
+                &:nth-child(4){
                     color:red;
                     line-height:0.533333rem;
 

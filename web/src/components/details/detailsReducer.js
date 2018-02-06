@@ -15,6 +15,7 @@ export default function detailsReducer(state={},action){
         case (ajaxConstants.AJAX_REQUESTERROR || detailsContants.ADDCART_REQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;
+            
             break;
 
         case detailsContants.ADDCART_REQUESTED:
