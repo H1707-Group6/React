@@ -1,7 +1,7 @@
 .idxfooter{
 	height: 1.333333rem;
 	width: 100%;
-	border-top:0.013333rem;
+	border-top:0.013333rem solid #555;
 	ul{
 		
 		li{
@@ -9,12 +9,16 @@
 			border-right:0.013333rem;
 			text-align: center;
 			float:left;
-			Icon{
+			height: 1.333333rem;
+			padding-top:0.133333rem;
 
+			.icon_footer{
+				font-size:0.666667rem;
+				color:#555;
 			}
 			a{
 				display: block;
-				
+				color:#555;
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import { Icon, Grid } from 'antd-mobile';
+
 import * as action from './goodslistAction'
 
 import './goodslist.scss'
