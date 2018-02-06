@@ -32,7 +32,7 @@ module.exports = {
     },
     update: function(_modsql,_callback){
         db.query(_modsql,function (error,results,fields) {
-            console.log(error,results,fields);
+           
             if(error){
                 _callback({status: false, error: error})
                 return;

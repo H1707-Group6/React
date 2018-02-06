@@ -9,11 +9,11 @@ export function getDetails(key){
     }
 }
 
-export function addCart(gid){
+export function addCart(gid,userId){
     return{
         types:[detailsContants.ADDCART_REQUESTING,detailsContants.ADDCART_REQUESTED,detailsContants.ADDCART_REQUESTERROR],
-        url:'addcart',
+        url:'addCart',
         method:'post',
-        data:{goodsid:gid}
+        data:{goodsId:gid,userId:userId}
     }
 }

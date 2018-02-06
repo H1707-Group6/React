@@ -33,7 +33,8 @@ module.exports = {
                 id = ${goodid}
             `;   
             db.select(sql, function(data){
-                if(data.data.results==''){  
+                console.log(data.data.results)
+                if(data.data.results.length<=0){  
                     sql = `select * from goods where id = ${goodid}`
                     db.select(sql,function(data){
                         res.send(data);
