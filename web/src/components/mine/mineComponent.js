@@ -4,7 +4,7 @@ import {Icon} from 'antd';
 import {connect} from 'react-redux'
 import * as action from './mineAction'
 var uid;
-class OrderComponent extends Component{
+class MineComponent extends Component{
         state = {
             text:''
         }
@@ -21,16 +21,22 @@ class OrderComponent extends Component{
             }
         }
         //跳转到订单
-        genorder(){
+        genorder(event){
             this.props.genorder(uid).then((res)=>{
                 console.log(res);
             });
         }
+        //跳到未付款订单
+        gotonopay(){
+            this.props.router.push({
+                    pathname:'nopay'
+                })
+            }
         //跳转到登入
         gotoLogin(){
             if(uid){
                 this.setState({
-                    text:''
+                    text:'登入成功'
                 })
             }else{
                 this.props.router.push({
@@ -46,15 +52,16 @@ class OrderComponent extends Component{
             		<div className="header_bar">
             			<Icon type="left" />
             		</div>
-            		<div className="no_login">
+            		<div className="no_login" onClick={()=>this.gotoLogin()}>
             			<p>Hi,欢迎来到花礼网</p>
-            			<span onClick={this.gotoLogin.bind(this)}>{this.state.text}</span>
+            			<span>{this.state.text}</span>
             		</div>
             		<div className="top_bar">
             			<ul>
-            				<li>
+            				<li onClick={()=>this.gotonopay()}>
           						<Icon type="wallet" />
             					<p>待付款</p>
+                                <span>{}</span>
             				</li>
             				<li>
           						<Icon type="car" />
@@ -64,7 +71,7 @@ class OrderComponent extends Component{
           						<Icon type="form" />
             					<p>待评价</p>
             				</li>
-            				<li onClick={()=>this.genorder()}>
+            				<li onClick={(event)=>this.genorder(event)}>
           						<Icon type="solution" />
             					<p>全部订单</p>
             				</li>
@@ -124,9 +131,9 @@ class OrderComponent extends Component{
 let mapStateToProps = (state)=>{
    
     return {
-        ajaxStatus:state.login.status,
-        ajaxResult:state.login.result|| []
+        ajaxStatus:state.mine.status,
+        ajaxResult:state.mine.result|| []
     }
 }
 
-export default connect (mapStateToProps,action)(OrderComponent);
+export default connect (mapStateToProps,action)(MineComponent);

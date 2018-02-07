@@ -10,7 +10,7 @@ export default function goodslistReducer(state={},action){
             break;
         case ajaxConstants.AJAX_REQUESTED:
             newState.status = 1;
-            console.log(action);
+            // console.log(action);
             newState.result = action.result.results;
             break;
         case (ajaxConstants.AJAX_REQUESTERROR || goodslistContants.ADDCART_REQUESTERROR):

@@ -18,6 +18,7 @@ class LoginComponent extends Component{
                 })
             }else{
                 window.sessionStorage.setItem('userId',res.results[0].id);
+                window.sessionStorage.setItem('username',this.refs.username.value);
                 this.props.router.push({
                         pathname:'/'
                     })

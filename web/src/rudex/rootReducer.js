@@ -2,6 +2,9 @@ import {combineReducers} from 'redux'
 //韦职丽
 import login from '../components/login/loginReducer'
 import register from '../components/register/registerReducer'
+import nopay from '../components/nopay/nopayReducer'
+import order from '../components/order/orderReducer'
+import mine from '../components/mine/mineReducer'
 //冯志伟
 import goodslist from '../components/goodslist/goodslistReducer'
 import details from '../components/details/detailsReducer'
@@ -14,5 +17,8 @@ export default combineReducers({
     details,
     cart,
     login,
-    register
+    register,
+    nopay,
+    order,
+    mine
 })
