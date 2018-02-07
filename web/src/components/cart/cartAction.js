@@ -4,20 +4,6 @@ export function getCart(){
         data: {userId: 2}
     }
 }
-
-// export function goods_qty(arr){
-//     console.log(arr)
-//     for(var i = 0;i < arr.length;i++){
-//         for(var j = i+1;j < arr.length;j++){
-//             if(arr[i].id == arr[j].id){
-//                 arr[i].qty++;
-//                 arr.splice(j,1);
-//                 getQty(arr);
-//             }
-//         }
-//     }
-//     return arr;
-// }
 export function genOrder(cartids, goodsids){
     return {
         url: 'genorder',
@@ -25,3 +11,45 @@ export function genOrder(cartids, goodsids){
         data: {uid: 1, cartids, goodsids}
     }
 }
+
+// export function getQty(){
+//     console.log(55)
+// }
+export function  updata(event,idx,cartlist){
+    return {
+        type:'cc',
+
+        data:{
+            e:event,
+            id:idx,
+            cartlist:cartlist
+        }
+    }
+    console.log(event,idx)
+    // if(event.target.innerText =='+'){
+    //     cartlist[idx][0].qty = ++ event.target.parentNode.children[1].innerText ;
+        
+    //     // this.total += Number(onePrice)
+    // }else if(event.target.innerText =='-'){
+    //     cartlist[idx][0].qty = --event.target.parentNode.children[1].innerText ;
+    //     if( cartlist[idx][0].qty<=1){
+    //          cartlist[idx][0].qty = event.target.parentNode.children[1].innerText = 1;
+    //     }
+       
+    // }
+    // cartlist[idx][0].onePrice =  cartlist[idx][0].qty*cartlist[idx][0].saleprice;
+    // this.check();
+
+    // this.total = onePrice;
+    // // setState({total:})
+    // return this.total;
+}
+// export function check(checks){
+//     this.total = 0;
+//     for(var i =0; i<checks.length;i++){
+        
+//         if(checks[i].checked){
+//             this.states.total  += Number(cartlist[i][0].qty*cartlist[i][0].saleprice) ;
+//         }
+//     }
+// }

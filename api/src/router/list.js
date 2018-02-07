@@ -4,8 +4,8 @@ module.exports = {
     register: function(app){
         app.get('/getgoodslist', function(req, res){
             var keyword = req.query.keyword;
-            console.log(keyword)
-        
+            var type = req.query.type;
+            var dec = req.query.desc;
             var sql = `
                 select                           
                     g.*
@@ -13,9 +13,26 @@ module.exports = {
                     goods g 
                     inner join smalltype s on g.smalltype = s.id
                 where
-                    type = '${keyword}';
+                    type = '${keyword}'
             `;
+            if(type == '销量'){
+                console.log(dec)
+                if(dec == 'false'){
+                  
+                    sql +='order by saleqty desc';
+                }else{  
+                   
+                    sql +='order by saleqty asc';
+                }
+            }else if(type == '价钱'){
+                if(dec == 'false'){
+                    sql+='order by saleprice desc';
+                }else{
+                    sql+='order by saleprice asc'
+                }
+            }
             db.select(sql, function(data){
+               
                 res.send(data);
             })
         })

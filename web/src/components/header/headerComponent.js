@@ -8,7 +8,8 @@ export default class HeaderComponent extends Component {
         title_h:this.props.text
     }
     goBack(){
-        
+        this.props.router.push.goBack(-1);
+   
     }
     render(){
         return (   
