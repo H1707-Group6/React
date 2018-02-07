@@ -77,25 +77,217 @@
 			}
 			.slider-list{
 				height:4.8rem !important;
-			}
-			
+			}	
 		}
-		.main_caption{
+		.main02_caption{
 			width: 100%;
 			height: 0.746667rem;
-			border-button:0.013333rem solid #ddd;
+			// border-bottom:0.013333rem solid #ddd;
 			li{
 				float: left;
 				height: 0.746667rem;
 			    color: #9b9b9b;
 			    text-align: center;
 			    line-height: 0.746667rem;
+			    font-size:0.32rem;
 			    &:last-child #pjCount{
 			    	color:#555;
+			    	font-size:0.32rem;
 			    }
 			}
 		}
+		.main03_classify{
+			height: 2.213333rem;
+			width: 100%;
+			border-top:0.013333rem solid #ccc;
+			padding:0.163333rem 0.04rem 0.096667rem 0.04rem;
+			border-bottom: 0.013333rem solid #ccc;
+			li{
+				float:left;
+				height: 1.76rem;
+			    width: 20%;
+			    text-align: center;
+			    img{
+			    	margin:auto;
+			    	width: 1.28rem;
+			    	height: 1.28rem;
+			    }
+			    span{
+			    	display:block;
+			    	margin-top:0.08rem;
+
+			    }
+			}
+		}
+		.main04_category{
+			height: 2.373333rem;
+			width: 100%;
+			text-align: center;
+			box-sizing: border-box;
+			font-size: 0;
+			padding: 0.133333rem 0 0.213333rem;
+			border-bottom: 0.213333rem solid #ddd;
+			a{
+				display: inline-block;
+			    width: 25%;
+			    text-align: center;
+			    color: #000;
+			    box-sizing: border-box;
+			    border-left: 0.013333rem solid #ccc;
+			    img{
+			    	margin:auto;
+			    	width: 1.386667rem;
+			    	height: 1.386667rem;
+			    }
+			    p{
+			    	font-size:0.32rem;
+			    	margin-top:0.08rem;
+			    }
+			}
+		}
+		.featured{
+			height: 1.2rem;
+			width: 100%;
+			.title{
+				
+				.title_line{
+					width: 4.266667rem;
+				    height: 0.026667rem;
+				    background-color: #bbb;
+				    margin: 0.586667rem auto 0;
+				}
+				.title_name{
+					display: block;
+					width: 2.4rem;
+				    text-align: center;
+				    background-color: #fff;
+				    font-size: 0.426667rem;
+				    color: #222;
+				    margin: -0.32rem auto 0.346667rem;
+				}
+			}
+		}
+		.main05_fea_list{
+			padding: 0 0 0 0.213333rem;
+		    border-bottom: 0.213333rem solid #eee;
+		    padding-bottom: 0.48rem;
+			ul{
+				overflow: hidden;
+				li{
+					float: left;
+				    width: 50%;
+				    padding-right: 0.213333rem;
+				    padding-bottom: 0.213333rem;
+				    .pro_box{
+						border: 0.026667rem solid #ccc;
+					    border-color: #efefef;
+					    position: relative;
+					    img{
+					    	width: 100%;
+						    padding: 0.08rem;
+						    height: 4.8rem;
+						    max-height: 8.453333rem;
+					    }
+					    .pro_text{
+					    	padding: 0.16rem;
+					    	.pro_name{
+					    		font-size: 0.32rem;
+							    color: #232323;
+							    white-space: nowrap;
+							    overflow: hidden;
+							    text-overflow: ellipsis;
+					    	}
+					    	.pro_detail{
+					    		color: #777;
+							    font-size: 0.266667rem;
+							    line-height: 0.346667rem;
+							    white-space: nowrap;
+							    overflow: hidden;
+							    text-overflow: ellipsis;
+					    	}
+					    	.pro_price{
+					    		color: #222;
+    							font-size: 0.32rem;
+					    	}
+					    }
+				    }
+				}
+			}
+
+			.more_btn{
+				display: block;
+			    width: 3.173333rem;
+			    margin: 0 auto;
+			    height: 0.906667rem;
+			    line-height: 0.853333rem;
+			    font-size: 0.32rem;
+			    border: 0.013333rem solid #ccc;
+			    border-radius: 0.053333rem;
+			    text-align: center;
+			    margin-top: 0.133333rem;
+			    color: #777;
+			    .arrow_right{
+			    	display: inline-block;
+				    width: 0.32rem;
+				    height: 0.32rem;
+				    background: url(//img02.hua.com/m/icon/chevron_Right.png) no-repeat center;
+				    background-size: 0.64rem 0.64rem;
+				    position: relative;
+				    top: 0.053333rem;
+				    opacity: .7;
+			    }
+			}
+		}
+		.main_tabs{
+			height: 9.093333rem !important;
+			border-bottom: 0.213333rem solid #ddd;
+			// height: 93vw;
+			max-height: 12.533333rem;
+			.am-tabs-default-bar-tab{
+				height: 2.533333rem !important;
+				.am-tabs-default-bar-tab-active{
+					font-size:0.48rem !important;
+				}
+			}
+			.am-whitespace{
+				height: 0;
+			}
+
+			.tabs{
+				display: flex;
+				flex-direction: column;
+				height: 6.56rem;
+				width: 100%;
+				background-color: #FFF;
+				img{
+					height: 5.333333rem;
+					width: 9.146667rem;
+					margin-bottom:0.186667rem;
+				}
+				.tabs_active{
+					width: 100%;
+					height: 0.96rem;
+					padding: 0.133333rem 0.426667rem;
+				    line-height: 0.426667rem;
+				    font-weight: 700;
+				    text-align: center;
+				    line-height: 0.613333rem;
+					p{
+						font-size: 0.32rem;
+					    color: #232323;
+					    font-weight: 400;
+					    line-height: 0.48rem;
+					    margin-bottom: 0.213333rem;
+					}
+				}
+			}
+		}
+
 	}
+
+
+
+
 	.home_f{
 		height: 1.333333rem;
 

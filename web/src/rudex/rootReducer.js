@@ -9,16 +9,20 @@ import mine from '../components/mine/mineReducer'
 import goodslist from '../components/goodslist/goodslistReducer'
 import details from '../components/details/detailsReducer'
 import cart from '../components/cart/cartReducer'
-//龙飞宇
 
+//龙飞宇
+import home from '../components/home/homeReducer'
 
 export default combineReducers({
     goodslist,
     details,
     cart,
+    home,
     login,
     register,
     nopay,
     order,
     mine
+
+
 })

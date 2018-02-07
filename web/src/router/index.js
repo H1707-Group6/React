@@ -1,9 +1,6 @@
 import React from 'react'
 import {Route} from 'react-router'
 
-
-
-
 //龙飞宇
 import HomeComponent from '../components/home/homeComponent'
 // import ClassifyComponent from '../components/classify/classifyComponent'
