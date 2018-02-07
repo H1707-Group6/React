@@ -10,7 +10,8 @@ export default function detailsReducer(state={},action){
             break;
         case ajaxConstants.AJAX_REQUESTED:
             newState.status = 1;
-            newState.result = action.result.results;
+            console.log('decait':action)
+            newState.results = action.result.results;
             break;
         case (ajaxConstants.AJAX_REQUESTERROR || detailsContants.ADDCART_REQUESTERROR):
             newState.status = -1;
@@ -19,6 +20,7 @@ export default function detailsReducer(state={},action){
             break;
 
         case detailsContants.ADDCART_REQUESTED:
+            console.log('add':action)
             newState.status = 1;
             break;
     }

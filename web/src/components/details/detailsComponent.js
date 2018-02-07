@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { Icon } from 'antd';
 import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
+import {hashHistory} from 'react-router'
 // import {Link} from 'react-router';
 
 import * as action from './detailsAction'
@@ -31,7 +32,7 @@ class GoodslistComponent extends Component{
     }
     goCart(){
         // console.log(this.props.router.go('cart'))
-        this.props.router.push({pathname:'cart'})
+       hashHistory.push('cart');
     }
     render(){
         return(
@@ -43,6 +44,13 @@ class GoodslistComponent extends Component{
                 <div className = 'details_fm'>
                     {
                         this.props.ajaxResult.map((iten)=>{
+                            if(typeof(iten.detailsimg)=='string'){
+                                   iten.detailsimg = iten.detailsimg.split(',')
+                                   console.log(iten.detailsimg)
+                                }else{
+                                    iten.detailsimg = iten.detailsimg
+                                    console.log(iten.detailsimg)
+                            }  
                             return <div key={iten.id}>
                                     <Carousel className="space-carousel" className = 'details_img'
                                         autoplay
@@ -50,7 +58,8 @@ class GoodslistComponent extends Component{
                                         beforeChange={(from, to) =>(`slide from ${from} to ${to}`)}
                                     >   
                                         {   
-                                            iten.detailsimg.split(',').map((val, index) => (
+                                           
+                                            iten.detailsimg.map((val, index) => (
                                                 <a key={index}
                                                   style={{
                                                     display: 'block', 
@@ -102,7 +111,7 @@ let mapStateToProps = (state)=>{
     // console.log(state.goodslist)
     return {
         ajaxStatus:state.details.status,
-        ajaxResult:state.details.result|| []
+        ajaxResult:state.details.results|| []
     }
 }
 

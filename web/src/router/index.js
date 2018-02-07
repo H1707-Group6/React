@@ -29,7 +29,7 @@ const routes = (
         <Route path = 'mine' component={MineComponent}/>
         <Route path = 'nopay' component={NopayComponent}/>
         <Route path = '/details' component={DetailsComponent}/>
-        <Route path = '/cart' component={CartComponent}/>
+        <Route path = 'cart(/:id)' component={CartComponent}/>
     </Route>
 
 )
