@@ -1,7 +1,3 @@
-/* 
-* @Author: Marte
-* @Date:   2018-02-04 20:30:54
-* @Last Modified by:   Marte
-* @Last Modified time: 2018-02-05 11:00:22
-*/
-
+export const CART_REQUESTING ='CART_REQUESTING';
+export const CART_REQUESTED ='CART_REQUESTED';
+export const CART_REQUESTERROR ='CART_REQUESTERROR';

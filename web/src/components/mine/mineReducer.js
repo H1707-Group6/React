@@ -10,7 +10,7 @@ export default function goodslistReducer(state={},action){
             break;
         case ajaxConstants.AJAX_REQUESTED:
             newState.status = 1;
-            newState.result = action.result.results[0];
+            newState.result = action.result.results;
             break;
         case (ajaxConstants.AJAX_REQUESTERROR):
             newState.status = -1;
@@ -18,3 +18,4 @@ export default function goodslistReducer(state={},action){
             break;
     }
     return newState;
+}
