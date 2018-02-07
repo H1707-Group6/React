@@ -11,6 +11,7 @@ export default function goodslistReducer(state={},action){
         case ajaxConstants.AJAX_REQUESTED:
             console.log(action)
             newState.status = 1;
+            // console.log(action);
             newState.result = action.result.results;
             break;
         case ajaxConstants.AJAX_REQUESTERROR :

@@ -1,4 +1,4 @@
-import * as goodslistContants from './goodslistContants'
+// import * as goodslistContants from './goodslistContants'
 import * as ajaxConstants from '../../contants/ajaxContants'
 export function getGoods(key,type,dec){
     console.log(key,type,dec)

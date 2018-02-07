@@ -1,0 +1,44 @@
+.nopay{
+	display: flex;
+	height: 100%;
+	flex-direction:column;
+	header{
+        height:1.12rem;
+        background:red;
+    }
+	main{
+		flex:1;
+        overflow-y:auto;
+        .spmc{
+        	display: flex;
+            height: 100%;
+        	flex-direction:column;
+        	padding: 0 0.186667rem;
+            background: #e8e8e8;
+        	ul{
+        		margin-top: 0.213333rem;
+        		li{
+					padding: 0.266667rem;
+                    overflow: hidden;
+                    border: 1px solid #888;
+                    background: #fff;
+                    border-radius:0.133333rem;
+                    .spmc_img{
+                        float: left;
+                        margin-right: 0.266667rem;
+                        img{
+                           width: 1.6rem;
+                           height: 1.333333rem;
+                        } 
+                    }
+                    .spmc_content{
+                        float: left;
+                        p{
+                            font-size: 0.373333rem;
+                        }
+                    }
+        		}
+        	}
+        }
+	}
+}

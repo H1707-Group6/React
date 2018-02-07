@@ -4,7 +4,106 @@
         background:red;
     }
     main{
-        width:100%;
-        padding: 0.16rem 0.213333rem;
+        display:flex;
+        overflow-y:auto;
+        .content{
+            width:100%;
+            padding: 0.16rem 0.213333rem;
+            .menus{
+                display:flex;
+                justify-content:space-between;
+                border:1px solid #FE6C6C;
+                border-radius: 5%;
+                span{
+                    flex:1;
+                    text-align:center;
+                    background: #FE6C6C;
+                    height:0.8rem;
+                    line-height:0.8rem;
+                    color:#fff;
+                    font-size:0.373333rem;
+                   
+                }
+            }
+            .login_mc{
+                margin-top: 0.533333rem;
+                .l_mc_num,.l_mc_code,.l_mc_msg,.l_mc_pwd{
+                    margin-bottom: 0.533333rem;
+                    p{
+                        color:#552c11;
+                    }
+                    input{
+                        background: #F9F9F9;
+                        width: 100%;
+                        height:1.12rem;
+                        line-height:1.12rem;
+                        border: 1px  solid #E2E2E2;
+                        color:#000;
+                        font-size:0.373333rem;
+                        border-radius: 0.08rem;
+                        text-indent: 0.426667rem;
+                    }
+                }
+                .l_mc_code{
+                    position: relative;
+                    span{
+                        display: block;
+                        width: 2.266667rem;
+                        height: 0.8rem;
+                        line-height:0.8rem;
+                        color:blue;
+                        // background: red;
+                        position: absolute;
+                        right: 0;
+                        top:13px;
+                        border-left: 1px solid #ccc;
+                        text-align: center;
+                        font-size: 0.426667rem;
+                    }
+                }
+                .l_mc_msg{
+                     height:1.12rem;
+                    input{
+                        width: 4.853333rem;
+                        float: left;
+                    }
+                    span{
+                        display: block;
+                        width: 4.4rem;
+                        height:1.12rem;
+                        line-height: 1.12rem;
+                        border:1px solid #FF6600;
+                        float: left;
+                        margin-left: 3%;
+                        text-align: center;
+                        font-size: 0.373333rem;
+                        color:#FF6600;
+                    }
+                }
+                .sub_btn{
+                    margin:20px 0;
+                    input{
+                        width: 100%;
+                        height:1.12rem;
+                        line-height: 1.12rem;
+                        background: #FF6600;
+                        border-radius: 3%;
+                        font-size: 0.426667rem;
+                        color:#fff;
+                    }
+                }
+            }
+            .links{
+                height: 0.8rem;
+                span{
+                    display: block;
+                    height: 0.8rem;
+                    line-height: 0.8rem;
+                    text-decoration: underline;
+                    color:#666666;
+                    font-size:0.373333rem;
+                }
+            }
+        }
     }
 }

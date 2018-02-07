@@ -13,7 +13,7 @@
                 font-size:0.373333rem;
                 width:100%;
                 height:1.013333rem;
-                a{
+                span{
                     // display: block;
                     float:right;
                     line-height:1.013333rem;
@@ -28,10 +28,15 @@
                         height:1.12rem;
                         width:100%;
                         border: 1px solid #e2e2e2;
-                        background:#f0efee;
+                        background:#FAFFBD;
                         line-height:1.12rem;
                         font-size:0.373333rem;
                         padding:0 0.533333rem;
+                        border-radius: 0.08rem;
+                        border:1px solid #ccc;
+                    }
+                    p{
+                        color:red;
                     }
                 }
                 .login_choose{
@@ -69,14 +74,14 @@
                         height:0.533333rem;
                         line-height:0.533333rem;
                         font-size:0.373333rem;
-                        a{
+                        span{
                             color: #666;
                         }
                     }
                 }
                 .login_other{
                     height:1.333333rem;
-                    margin:0.8rem 0.533333rem;
+                    margin:0.533333rem 0.533333rem;
                     .text{
                         display:block;
                         float:left;
@@ -92,6 +97,22 @@
                         width:2.666667rem;
                         height:0.6rem;
                         border-bottom:2px solid #ccc;
+                    }
+                }
+                .login_link{
+                    display: flex;
+                    justify-content:space-around;
+                    span{
+                        text-align: center;
+                        display: inline-block;
+                        i{
+                            font-size:0.933333rem;
+                            color:#36c0bf;
+                        }
+                        span{
+                            font-size: 0.373333rem;
+                            color: #757575;
+                        }
                     }
                 }
             }
