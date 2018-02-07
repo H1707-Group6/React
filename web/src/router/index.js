@@ -3,7 +3,7 @@ import {Route} from 'react-router'
 
 //龙飞宇
 import HomeComponent from '../components/home/homeComponent'
-// import ClassifyComponent from '../components/classify/classifyComponent'
+import ClassifyComponent from '../components/classify/classifyComponent'
 
 //冯志伟
 import GoodslistComponent from '../components/goodslist/goodslistComponent'
@@ -21,6 +21,7 @@ import NopayComponent from '../components/nopay/nopayComponent'
 const routes = (
     <Route>
         <Route path = '/' component={HomeComponent}/>
+        <Route path = '/classify' component={ClassifyComponent}/>
         <Route path = 'goodslist' component={GoodslistComponent}/>
         <Route path = 'login' component={LoginComponent}/>
         <Route path = 'register' component={RegisterComponent}/>

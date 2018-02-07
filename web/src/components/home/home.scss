@@ -241,12 +241,16 @@
 		.main_tabs{
 			height: 9.093333rem !important;
 			border-bottom: 0.213333rem solid #ddd;
-			// height: 93vw;
+			
 			max-height: 12.533333rem;
 			.am-tabs-default-bar-tab{
-				height: 2.533333rem !important;
+				// height: 2.533333rem !important;
+				height: 1.033333rem !important;
+				font-size:0.32rem;
+				border:0.013333rem solid #ccc;
 				.am-tabs-default-bar-tab-active{
 					font-size:0.48rem !important;
+
 				}
 			}
 			.am-whitespace{
@@ -282,14 +286,62 @@
 				}
 			}
 		}
-
+		.login_help{
+			display: block;
+			width: 100%;
+    		height: 1.52rem;
+			border-bottom: 0.013333rem solid #eee;
+    		padding-top: 0.426667rem;
+			.user_login{
+				overflow:hidden;
+				margin-bottom: 0.426667rem;
+				li{
+					float: left;
+				    text-align: center;
+				    font-size: 0.32rem;
+				    width: 33.3%;
+				    a{
+				    	background-color: #eee;
+					    color: #444;
+					    border-radius: 0.053333rem;
+					    display: inline-block;
+    					padding: 0.106667rem 0.506667rem;
+				    }
+				}
+			}
+		}
+		.platform{
+			// overflow: hidden;
+			width: 100%;
+			height: 2.733333rem;
+		    padding: 0.426667rem 10% 0.373333rem 10%;
+		    color: #777;
+		    font-size: 0.32rem;
+		    border-bottom: 0.013333rem solid #ddd;
+			dl{
+				display: inline-block;
+				width: 50%;
+				height: 100%;
+				text-align:center;
+				dt{
+					img{
+						display: inline-block;
+						width: 1.013333rem;
+						height: 1.573333rem;
+					    margin: 0.133333rem 0 0.213333rem 0;
+					}
+				}
+			}
+		}
+		.copyright{
+			font-size: 0.266667rem;
+		    text-align: center;
+		    color: #aaa;
+		    padding: 0.426667rem 0;
+		}
 	}
-
-
-
 
 	.home_f{
 		height: 1.333333rem;
-
 	}
 }
