@@ -17,3 +17,4 @@ export function addCart(gid,userId){
         data:{goodsId:gid,userId:userId}
     }
 }
+

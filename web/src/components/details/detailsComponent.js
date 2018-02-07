@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { Icon } from 'antd';
 import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
-
+// import {Link} from 'react-router';
 
 import * as action from './detailsAction'
 
@@ -30,7 +30,7 @@ class GoodslistComponent extends Component{
         this.props.addCart(key,username)
     }
     goCart(){
-        console.log(this.props.router.go('cart'))
+        // console.log(this.props.router.go('cart'))
         this.props.router.push({pathname:'cart'})
     }
     render(){
@@ -48,8 +48,9 @@ class GoodslistComponent extends Component{
                                         autoplay
                                         infinite
                                         beforeChange={(from, to) =>(`slide from ${from} to ${to}`)}
-                                    >
-                                        {iten.detailsimg.split(',').map((val, index) => (
+                                    >   
+                                        {   
+                                            iten.detailsimg.split(',').map((val, index) => (
                                                 <a key={index}
                                                   style={{
                                                     display: 'block', 
@@ -58,7 +59,8 @@ class GoodslistComponent extends Component{
                                                 >
                                                 <img src={val} style={{ width: '80%'}}/>
                                                 </a>
-                                        ))}
+                                            ))
+                                        }
                                     </Carousel>
                                     <p className = 'title'>
                                         {iten.title}

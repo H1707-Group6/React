@@ -1,0 +1,30 @@
+.classify{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	.classify_h{
+		height: 1.173333rem;
+		width: 100%;
+		padding: 0.186667rem 0.426667rem;
+		background-color: #f1f1f1;
+		.classify_sousuo{
+			height: 100%;width: 100%;
+			background-color: #FFF;
+			input{
+				line-height: 0.8rem;
+				padding-left:0.133333rem;
+				font-size:0.32rem;
+			}
+		}
+	}
+	.classify_m{
+		flex:1;
+		overflow-x:hidden;
+	    display:flex;
+	    flex-direction: column;
+	    background-color: #aaa;
+	}
+	.classify_f{
+		height: 1.333333rem;
+	}
+}

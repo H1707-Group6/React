@@ -12,12 +12,14 @@ import cart from '../components/cart/cartReducer'
 
 //龙飞宇
 import home from '../components/home/homeReducer'
+import classify from '../components/classify/classifyReducer'
 
 export default combineReducers({
     goodslist,
     details,
     cart,
     home,
+    classify,
     login,
     register,
     nopay,

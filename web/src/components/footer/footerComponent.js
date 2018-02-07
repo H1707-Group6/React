@@ -1,18 +1,21 @@
 import React,{Component} from 'react'
 import './footer.scss'
-import {Icon} from 'antd';
-import { Grid } from 'antd-mobile';
-
+import {Icon} from 'antd'
+import { Grid } from 'antd-mobile'
+import {Link} from 'react-router'
 
  class FooterComponent extends Component{
+    state={
+
+    }
     render(){
         return(
     		<footer className="idxfooter">
     			<ul>
-    				<li><Icon className="icon_footer" type="home" /><a>首页</a></li>
-    				<li><Icon className="icon_footer" type="shop" /><a>分类</a></li>
-    				<li><Icon className="icon_footer" type="shopping-cart" /><a>购物车</a></li>
-    				<li><Icon className="icon_footer" type="user" /><a>我的</a></li>
+    				<Link to="/"><li><Icon className="icon_footer" type="home" /><p>首页</p></li></Link>
+    				<Link to="/classify"><li><Icon className="icon_footer" type="shop" /><p>分类</p></li></Link>
+    				<Link to="/cart"><li><Icon className="icon_footer" type="shopping-cart" /><p>购物车</p></li></Link>
+    				<Link to="/mine"><li><Icon className="icon_footer" type="user" /><p>我的</p></li></Link>
     			</ul>
     		</footer>
         )

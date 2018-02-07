@@ -215,9 +215,25 @@ var res = [];
                             全部礼品<span className="arrow_right"></span></a>
                         </div>
                     </div>
+
                     <Tabs/>
-                   
-                   
+                    
+                    <div className="login_help">
+                        <ul className="user_login">
+                            <li><a href="#">花语大全</a></li>
+                            <li><a href="#">查单</a></li>
+                            <li><a href="#">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div className="platform">
+                        <dl>
+                            <dt><a href="#" rel="nofollow"><img src="./src/assets/imgs/other/icon-phone.png" alt="mobile" /></a></dt>
+                        </dl>
+                        <dl>
+                            <dt><a id="kefu" href="#"><img src="./src/assets/imgs/other/icon-kefu.png" alt="客服" /></a></dt>
+                        </dl>
+                    </div>
+                    <div className="copyright">Copyright @ 2005~2018 花礼网(中国鲜花礼品网) 版权所有<br/>中国鲜花网领先品牌，鲜花速递专家！</div>
                 </div>
 
             	<div className="home_f">
