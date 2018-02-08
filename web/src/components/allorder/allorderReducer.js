@@ -1,19 +1,18 @@
 import * as ajaxConstants from '../../contants/ajaxContants'
 
-import * as registerContants from './registerContants'
+import * as allorderContants from './allorderContants'
 
-export default function registerReducer(state={},action){
+export default function goodslistReducer(state={},action){
     let newState = JSON.parse(JSON.stringify(state));
-    // console.log(action);
     switch(action.type){
-        case registerContants.register_REQUESTING:
+        case (ajaxConstants.AJAX_REQUESTING):
             newState.status = 0;
             break;
-        case registerContants.register_REQUESTED:
+        case ajaxConstants.AJAX_REQUESTED:
             newState.status = 1;
             newState.result = action.result.results;
             break;
-        case registerContants.register_REQUESTERROR:
+        case (ajaxConstants.AJAX_REQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;
             break;

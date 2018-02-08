@@ -1,6 +1,7 @@
 var db = require('../db/db')
 module.exports = {
 	register:function(app){
+		/*------------------全部订单---------------*/
 		app.get('/genorder',function(req,res){
 			// let ids = req.body.ids;//购物车商品id
 			let uid = req.query.uid;
@@ -24,6 +25,7 @@ module.exports = {
 				res.send(date);
 			})
 		}),
+		/*--------------------添加商品到数据库---------------------*/
 		app.post('/myorder',function(req,res){
 			let uid = req.body.uid;
 			let gid = req.body.gid;
@@ -47,45 +49,67 @@ module.exports = {
 			
 			})
 		}),
-		// 支付页
-       	// app.post('/pay', function(req, res){
-        //     var orderid = req.body.orderid;
-        //     var status = req.body.status;
-        //     var date = req.body.time;
-           
-        //     var sql =`
-        //         select
-        //             *
-        //         from
-        //             orders
-        //         where userid = '${userid}';
 
-        //     `;
-        //     db.select(sql,function(data){
-        //         console.log(data);
-	       //      if(status == 1){
-	       //      	//确定为该时间编号订单并status为1已付款
-	       //          res.send('yes');
-	       //      }else if(status == 0){//未支付
-	       //          res.send('no');
-	       //      }
-        //     })
-       	// }),
-
-       	// 删
-        app.post('/orderdelect',function(req,res){
-            var date = req.body.date; 
-            var userid = req.body.userid; 
-            console.log(date,userid);
-            var sql=`
-                delete from orders where 
-                date= '${date}' and userid=${userid};
-            `;
-
-            db.delete(sql,function(data){
-                // console.log(data);
-                res.send(data);
-            })
-        })
+        /*-------------未付款订单------------------------*/
+        app.get('/nopayorder',function(req,res){
+			// let ids = req.body.ids;//购物车商品id
+			let uid = req.query.uid;
+			console.log(uid);
+			let sql = `select 
+					o.*,
+					u.id,
+					od.*,
+					g.*
+				from
+					orders o
+					inner join users u on o.userid = u.id
+					inner join orderproduct od on o.id = od.orderid
+					inner join goods g on g.id = od.gid
+				where 
+					userid = 2 and status= 0`;
+				
+				// console.log(sql);
+			db.select(sql,(date)=>{
+				// console.log(date);
+				res.send(date);
+			})
+		}),
+       
+        /*---------------删除订单----------------*/
+		app.get('/delorder',function(req,res){
+			// let ids = req.body.ids;//购物车商品id
+			let uid = req.query.uid;
+			let gid = req.query.gid;
+			let oid = req.query.orderid;
+			console.log(gid,oid);
+			let sql = `
+					delete 
+						
+						from
+						orderproduct
+					where 
+						orderid in (${oid}) and gid in (${gid})`;
+				
+				
+			db.delete(sql,(date)=>{
+				
+				sql = `select 
+					o.*,
+					u.id,
+					od.*,
+					g.*
+				from
+					orders o
+					inner join users u on o.userid = u.id
+					inner join orderproduct od on o.id = od.orderid
+					inner join goods g on g.id = od.gid
+				where 
+					userid = 2`;
+				db.select(sql,(dates)=>{
+				
+					res.send(dates);
+				})
+			})
+		})
 	}
 }

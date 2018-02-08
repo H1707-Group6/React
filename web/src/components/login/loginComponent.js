@@ -3,12 +3,14 @@ import {connect} from 'react-redux'
 import './login.scss'
 import {Icon} from 'antd';
 import * as action from './loginAction'
+import Header from '../header/headerComponent'
 class LoginComponent extends Component{
     state = {
         phone:'',
         pwd:'',
         imageShow:true,
-        show:''
+        show:'',
+        text:'登入'
     }
     login(){
         this.props.login(this.refs.username.value,this.refs.password.value).then((res)=>{
@@ -16,14 +18,16 @@ class LoginComponent extends Component{
                 this.setState({
                     phone:'此帐号未注册！'
                 })
-            }else{
+            }else if(this.refs.username.value != '' && this.refs.password.value != ''){
                 window.sessionStorage.setItem('userId',res.results[0].id);
                 window.sessionStorage.setItem('username',this.refs.username.value);
                 this.props.router.push({
-                        pathname:'/'
-                    })
-                }
-            // console.log(res.results[0].id);
+                    pathname:'/'
+                })
+            }else if(this.refs.username.value == '' || this.refs.password.value == ''){
+                alert('请填写登入账号！');
+            }
+           
         });
     }
      //手机号判断  
@@ -71,7 +75,7 @@ class LoginComponent extends Component{
     render(){
         return (
             <div className="login">
-                <header></header>
+                <Header  text = {this.state.text}></Header>
                 <main>
                     <div className="content_main">     
                         <div className="login_verify">
@@ -92,7 +96,7 @@ class LoginComponent extends Component{
                                 </label>
                             </div>
                             <div className="login_btn">
-                                <input type="button" value="登入" onClick = {this.login.bind(this)}/>
+                                <input type="button" value="登入" onClick ={this.login.bind(this)}/>
                             </div>
                             <div className="login_type">
                                 <span>

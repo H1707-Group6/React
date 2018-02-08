@@ -5,6 +5,7 @@ import register from '../components/register/registerReducer'
 import nopay from '../components/nopay/nopayReducer'
 import order from '../components/order/orderReducer'
 import mine from '../components/mine/mineReducer'
+import allorder from '../components/allorder/allorderReducer'
 //冯志伟
 import goodslist from '../components/goodslist/goodslistReducer'
 import details from '../components/details/detailsReducer'
@@ -24,7 +25,8 @@ export default combineReducers({
     register,
     nopay,
     order,
-    mine
+    mine,
+    allorder
 
 
 })

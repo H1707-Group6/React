@@ -5,10 +5,14 @@ import {connect} from 'react-redux'
 
 import {Icon} from 'antd';
 import * as action from './orderAction'
+import Header from '../header/headerComponent'
 var username;
 // var uid;
 
 class OrderComponent extends Component{
+    state = {
+        text:'我的订单'
+    }
     componentWillMount(){
         username = window.sessionStorage.getItem('username');
     }
@@ -20,10 +24,15 @@ class OrderComponent extends Component{
         // var goods = [{gid:1,qty:2,total:2000},{gid:3,qty:9,total:2000}];
         this.props.myorder(uid,gid.join(','),qty.join(','),total);
     }
+    allorder(){
+        var gid = 3;
+        var oid = 58;
+        this.props.delorder(gid,oid);
+    }
     render(){
         return (
             <div className="order">
-            	<header></header>
+            	 <Header  text = {this.state.text}></Header>
                 <main>
 					<div className="step1">
                         <p>收货人:<Icon type="user-add" />韦职丽<span><Icon type="mobile" />手机号：{username}</span><Icon type="right" /></p>

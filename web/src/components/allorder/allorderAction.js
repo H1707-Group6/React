@@ -1,7 +1,7 @@
-export function nopayorder(uid){
+export function allorder(uid){
 	// console.log(uid);
 	return{
-		url:'nopayorder',
+		url:'genorder',
 		method:'get',
 		data:{
 			uid:uid,
@@ -19,4 +19,4 @@ export function delorder(uid,gid,orderid){
 			orderid:orderid
 		}
 	}
-} 
+}
