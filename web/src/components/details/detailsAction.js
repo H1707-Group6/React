@@ -18,3 +18,13 @@ export function addCart(gid,userId){
     }
 }
 
+export function comment(gid){
+    console.log(gid)
+    return{
+        types:[detailsContants.COMMENT_REQUESTING,detailsContants.COMMENT_REQUESTED,detailsContants.COMMENT_REQUESTERROR],
+        url:'comment',
+        method:'post',
+        data:{goodsId:gid}
+    }
+}
+

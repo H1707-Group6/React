@@ -52,6 +52,26 @@ module.exports = {
                 
             })
         })
+        app.post('/comment',function(req, res){
+            var gid = req.body.goodsId;
+            console.log(gid)
+            var sql = `
+                select 
+                    gr.*,                          
+                    g.*,
+                    u.username
+                from
+                    
+                    grade gr
+                    inner join goods g  on g.id = gr.gid
+                    inner join user u on gr.userid = u.id
+                where 
+                    gr.gid = 14`;
+            db.select(sql, function(data){
+                    res.send(data);
+                
+            })
+        })
         /*------------分页-------------------*/
         // app.get('/getcommodity',function(req,res){
         //     var keyword = req.query.keyword;

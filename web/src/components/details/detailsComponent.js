@@ -16,7 +16,7 @@ var key = '';
 sessionStorage.setItem('userId', 2);
 
 var username = '';
-class GoodslistComponent extends Component{
+class DetailsComponent extends Component{
     state = { 
         imgHeight: 800,
         slideIndex: 0,
@@ -25,13 +25,15 @@ class GoodslistComponent extends Component{
         key = this.props.router.location.state.gid ||sessionStorage.getItem('gid');
         
         username = sessionStorage.getItem('userId');
-        this.props.getDetails(key)
+        this.props.getDetails(key).then(res=>{
+            this.props.comment(key);
+        })
     }
     addCart(){
         this.props.addCart(key,username)
     }
     goCart(){
-        // console.log(this.props.router.go('cart'))
+        
        hashHistory.push('cart');
     }
     goBack(){
@@ -87,7 +89,24 @@ class GoodslistComponent extends Component{
                                     <p><span className = 'details_type'>说明：</span><span className='datails_cent'>2.14情人节特别定制款</span></p>
                                     <div className = 'Order_evaluation'>
                                         <h4><span>订单评价</span><span><i>{11}</i>条评论<Icon type="right" /></span></h4>
+                                        {
+                                            this.props.ajaxComment.map((item,index)=>{
+                                                return <ul key = {index}>
+                                                            <li><img src= {item.mainimg}/></li>
+                                                            <li>
+                                                                <p>{item.username}</p>
+                                                                <p>{item.content}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>
+                                                                    <Icon type="star" />
+                                                                    
+                                                                </p>
+                                                            </li>
 
+                                                        </ul>
+                                            })
+                                        }
                                     </div>
                             </div>
                         })
@@ -113,11 +132,13 @@ class GoodslistComponent extends Component{
 
 
 let mapStateToProps = (state)=>{
-    // console.log(state.goodslist)
+    console.log(state.details.result)
     return {
         ajaxStatus:state.details.status,
-        ajaxResult:state.details.results|| []
+        ajaxResult:state.details.results|| [],
+        ajaxComment:state.details.result||[]
+        // ajaxComment:state.details.results|| []
     }
 }
 
-export default connect (mapStateToProps,action)(GoodslistComponent)
+export default connect (mapStateToProps,action)(DetailsComponent)

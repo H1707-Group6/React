@@ -84,7 +84,7 @@
             }
         }
         .Order_evaluation{
-            border-top:0.4rem solid #ccc;
+            border-top:0.2rem solid #cccccc29;
             h4{
                 line-height:0.8rem;
                 display:flex;
@@ -95,6 +95,28 @@
                     &:nth-child(2){
                         color:#ccc;
                         
+                    }
+                }
+            }
+            >ul{
+                overflow:hidden;
+                margin-bottom:0.266667rem;
+                border-bottom:0.013333rem solid #ccc;
+                li{
+                    &:nth-child(1){
+                        float:left;
+                        width:20%;
+                        img{
+                            width:80%
+                        }
+                    }
+                    &:nth-child(2){
+                        float:left;
+                        width:60%;
+                    }
+                    &:nth-child(3){
+                        float:right;
+                         width:20%;
                     }
                 }
             }
