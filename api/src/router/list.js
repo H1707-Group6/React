@@ -11,7 +11,7 @@ module.exports = {
                     g.*
                 from
                     goods g 
-                    inner join smalltype s on g.smalltype = s.id
+                    inner join bigtype b on g.bigtype = b.id
                 where
                     type = '${keyword}'
             `;
@@ -54,7 +54,7 @@ module.exports = {
         })
         app.post('/comment',function(req, res){
             var gid = req.body.goodsId;
-            console.log(gid)
+        
             var sql = `
                 select 
                     gr.*,                          
@@ -66,9 +66,9 @@ module.exports = {
                     inner join goods g  on g.id = gr.gid
                     inner join user u on gr.userid = u.id
                 where 
-                    gr.gid = 14`;
+                    gr.gid = gid`;
             db.select(sql, function(data){
-                    res.send(data);
+                res.send(data);
                 
             })
         })
@@ -94,26 +94,25 @@ module.exports = {
         //     })
         // })
         /*------------------搜索-------------------*/
-        app.get('/seek',function(req,res){
-            var seekkeyword = req.query.keyword;
-            console.log(seekkeyword)
-            var limit = req.query.limit * 1;
-            var page = req.query.page * 1;
-            var sql = `
-                SELECT
-                    SQL_CALC_FOUND_ROWS
-                    * 
-                    FROM
-                goods WHERE title LIKE  '%${seekkeyword}%' 
-                limit ${(page - 1) * limit}, ${limit};
-                select FOUND_ROWS() as rowscount;
-                `;
-            console.log(sql)
-            db.select(sql, function(data){
-                // console.log(data)
-                res.send(data);
-            })
-        })
+        // app.get('/seek',function(req,res){
+        //     var seekkeyword = req.query.keyword;
+        //     console.log(seekkeyword)
+        //     var limit = req.query.limit * 1;
+        //     var page = req.query.page * 1;
+        //     var sql = `
+        //         SELECT
+        //             SQL_CALC_FOUND_ROWS
+        //             * 
+        //             FROM
+        //         goods WHERE title LIKE  '%${seekkeyword}%' 
+        //         limit ${(page - 1) * limit}, ${limit};
+        //         select FOUND_ROWS() as rowscount;
+        //         `;
+        //     db.select(sql, function(data){
+        //         // console.log(data)
+        //         res.send(data);
+        //     })
+        // })
         /*------------------所有---------------*/
         app.get('/getall',function(req,res){
             // var seekkeyword = req.query.keyword;

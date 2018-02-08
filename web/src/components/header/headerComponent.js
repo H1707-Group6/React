@@ -7,16 +7,13 @@ export default class HeaderComponent extends Component {
     state = {
         title_h:this.props.text
     }
-    goBack(){
-       
-        console.log(55,this.props)
-
-   
+    componentWillMount(){
+        console.log(this)
     }
     render(){
         return (   
             <div className = 'header_f' >
-                <Icon type="left" onClick = {this.goBack.bind(this)}/>
+                <Icon type="left"/>
                 <i>{this.state.title_h}</i>
                 <Icon type="menu-unfold" />
             </div>        
