@@ -50,16 +50,16 @@ module.exports = {
             })
         })
 
-        app.post('/delCart',function(req,res){
-            var gid = req.body.gid;
-            var uid = req.body.uid;
-            console.log(gid,uid);
-            var sql =`select gid from cart where userid = 2`
-            db.select(sql,(result)=>{
-                var allgid = result.data.results[0].gid;
-                res.send(result)
-            })
-        })
+        // app.post('/delCart',function(req,res){
+        //     var gid = req.body.gid;
+        //     var uid = req.body.uid;
+      
+        //     var sql =`select gid from cart where userid = 2`
+        //     db.select(sql,(result)=>{
+        //         var allgid = result.data.results[0].gid;
+        //         res.send(result)
+        //     })
+        // })
        
        
        

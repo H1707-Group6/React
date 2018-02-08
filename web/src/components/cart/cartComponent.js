@@ -128,7 +128,7 @@ class CartComponent extends Component {
                         <span>合计：<i>￥{this.state.total}</i></span>
                         </li>
                         <li onClick ={(event)=>this.goPay(event)}>
-                            <span >去结算(<i></i>)</span>
+                            <span>去结算(<i></i>)</span>
                         </li>
                 </ul>
                 </div>

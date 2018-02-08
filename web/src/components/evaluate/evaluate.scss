@@ -1,0 +1,25 @@
+.avaluate{
+	background:#F0EFED;
+	display: flex;
+	height: 100%;
+	flex-direction:column;
+
+	main{
+		flex:1;
+        overflow-y:auto;
+		.order_avaluate{
+			width: 100%;
+			height: 5.333333rem;
+			padding: 0.8rem 0;
+			text-align: center;
+			i{
+				font-size: 2.666667rem;
+				margin: 0.266667rem;
+			}
+			p{
+				font-size: 0.426667rem;
+
+			}
+		}
+	}
+}
