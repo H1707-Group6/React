@@ -17,23 +17,20 @@ var qty;
 class OrderComponent extends Component{
     state = {
         text:'我的订单'
+        // total:this.props.router.location.state.total,
     }
     componentWillMount(){
-        gid = this.props.router.location.state.gid ;
+        // gid = this.props.router.location.state.gid;
         // total = this.props.router.location.state.total ;
         username = window.sessionStorage.getItem('username');
         console.log(this.state.total)
     }
-    state = {
-        total:this.props.router.location.state.total,
-
-    }
     nopay(){
         var gid = [1,2,3];
         var qty = [3,4,5];
-        // var total = 666;
+        var total = 666;
         var uid = window.sessionStorage.getItem('userId');
-        // var goods = [{gid:1,qty:2,total:2000},{gid:3,qty:9,total:2000}];
+        var goods = [{gid:1,qty:2,total:2000},{gid:3,qty:9,total:2000}];
         this.props.myorder(uid,gid.join(','),qty.join(','),total);
     }
     allorder(){
