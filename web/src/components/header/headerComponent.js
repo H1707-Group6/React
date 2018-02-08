@@ -8,7 +8,7 @@ export default class HeaderComponent extends Component {
         title_h:this.props.text
     }
     componentWillMount(){
-        console.log(this)
+        console.log(this.hashHistory)
     }
     render(){
         return (   

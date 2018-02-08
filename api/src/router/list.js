@@ -64,7 +64,7 @@ module.exports = {
                     
                     grade gr
                     inner join goods g  on g.id = gr.gid
-                    inner join user u on gr.userid = u.id
+                    inner join users u on gr.userid = u.id
                 where 
                     gr.gid = gid`;
             db.select(sql, function(data){
@@ -114,25 +114,25 @@ module.exports = {
         //     })
         // })
         /*------------------所有---------------*/
-        app.get('/getall',function(req,res){
-            // var seekkeyword = req.query.keyword;
-            // console.log(seekkeyword)
-            var limit = req.query.limit * 1 || 10;
-            var page = req.query.page * 1 || 1;
-            var sql = `
-                SELECT
-                    SQL_CALC_FOUND_ROWS
-                    * 
-                    FROM
-                goods
-                limit ${(page - 1) * limit}, ${limit};
-                select FOUND_ROWS() as rowscount;
-                `;
-            db.select(sql, function(data){
-                // console.log(data)
-                res.send(data);
-            })
-        })
+        // app.get('/getall',function(req,res){
+        //     // var seekkeyword = req.query.keyword;
+        //     // console.log(seekkeyword)
+        //     var limit = req.query.limit * 1 || 10;
+        //     var page = req.query.page * 1 || 1;
+        //     var sql = `
+        //         SELECT
+        //             SQL_CALC_FOUND_ROWS
+        //             * 
+        //             FROM
+        //         goods
+        //         limit ${(page - 1) * limit}, ${limit};
+        //         select FOUND_ROWS() as rowscount;
+        //         `;
+        //     db.select(sql, function(data){
+        //         // console.log(data)
+        //         res.send(data);
+        //     })
+        // })
 
         // app.get('/getdetails',function(req, res){
         //     var goodid = req.query.gid;

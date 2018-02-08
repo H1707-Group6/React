@@ -1,8 +1,9 @@
 import * as detailsContants from './detailsContants'
-import * as ajaxConstants from '../../contants/ajaxContants'
+// import * as ajaxConstants from '../../contants/ajaxContants'
 export function getDetails(key){
     return{
         url:'getdetails',
+        types:[detailsContants.DETAILS_REQUESTING,detailsContants.DETAILS_REQUESTED,detailsContants.DETAILS_REQUESTERROR],
         data:{
             gid:key
         }

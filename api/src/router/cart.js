@@ -60,9 +60,7 @@ module.exports = {
         //         res.send(result)
         //     })
         // })
-       
-       
-       
+           
     }
 }
   // sql += `
