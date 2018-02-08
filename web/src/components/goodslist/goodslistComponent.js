@@ -14,10 +14,11 @@ class GoodslistComponent extends Component{
         text:'列表页'
     }
     componentWillMount(){
-        // var key = this.props.router.location.state.name
+        // var keys = this.props.router.location.state.name
         // console.log(this.props.router.location.state.name)
-        // let key = this.props.
-        key = '玫瑰';
+        console.log(keys)
+        
+        key = '永生花';
         this.props.getGoods(key);
     }
     goDetalist(gid){
@@ -26,7 +27,6 @@ class GoodslistComponent extends Component{
             pathname:'details',
             state:{gid:gid}
         })
-        // this.props.router.push({pathname:'/details'})
     }
     type(event,type){
         if(type == '鲜花分类'){
@@ -41,10 +41,11 @@ class GoodslistComponent extends Component{
 
 
     render(){
+        console.log(this.props.location)
         return(
             <div className='goodslist_f'>
                 <div className = 'goodslist_fh'>
-                    <Header  text = {this.state.text}></Header>
+                    <Header  text = {this.state.text} ref = 'goodslist'> {this.props.location}</Header>
                     
                 </div>
                 <ul className = 'goodstype'>
