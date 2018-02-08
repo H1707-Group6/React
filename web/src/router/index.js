@@ -30,7 +30,7 @@ const routes = (
         <Route path = 'nopay' component={NopayComponent}/>
         <Route path = 'allorder' component={AllorderComponent}/>
         <Route path = '/details' component={DetailsComponent}/>
-        <Route path = '/cart' component={CartComponent}/>
+        <Route path = 'cart(/:id)' component={CartComponent}/>
     </Route>
 
 )
