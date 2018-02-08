@@ -10,7 +10,7 @@ module.exports = {
                 select
                    *
                 from
-                    user
+                    users
                 where
                 	username='${username}' and password='${password}'
             `;
@@ -27,7 +27,7 @@ module.exports = {
 	            select
 	               *
 	            from
-	                user
+	                users
 	            where
 	           		username='${username}';
 	           `;
@@ -44,7 +44,7 @@ module.exports = {
 	            select
 	               *
 	            from
-	                user
+	                users
 	            where
 	            	username='${username}'
             `;

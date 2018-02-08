@@ -2,10 +2,6 @@
 	display: flex;
 	height: 100%;
 	flex-direction:column;
-	header{
-        height:1.12rem;
-        background:red;
-    }
 	main{
 		flex:1;
 		overflow-y:auto;
@@ -47,24 +43,23 @@
 		}
 	}
 	footer{
-		height: 1.173333rem;
 		border-top: 1px solid #ccc;
 		.footer{
+			height: 1.173333rem;
+			line-height: 1.17333rem;
 			display: flex;
 			justify-content:space-between;
 			margin-left:0.533333rem;
 			p{
-				height: 1.173333rem;
-				line-height: 1.173333rem;
 				font-size: 0.373333rem;
 				.total{
-					display: block;
 					color: #ff6600;
 					font-size: 0.426667rem
 				}
 				.btn_total{
 					display: block;
 					width: 4.0rem;
+					height: 100%;
 					background: #ff6600;
 					color:#fff;
 					font-size: 0.426667rem;
