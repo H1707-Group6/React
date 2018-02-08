@@ -19,7 +19,6 @@ class HomeComponent extends Component{
              this.props.getHotgoods(keyword[1]).then(()=>{
                 this.props.getHotgoods(keyword[2])
              })
-            
          })
     }
     state = {
@@ -43,20 +42,15 @@ class HomeComponent extends Component{
         catetext:['爱情鲜花','友情鲜花','送长辈鲜花','商务鲜花'],
     }
     componentDidMount(){
-
-        // simulate img loading
         setTimeout(() => {
         }, 100);
     } 
     homeSearch(){
-         var keyword = this.refs.myTextInput.value;
-        console.log(keyword);
-
-        axios.get(`/getSearch?keyword=${keyword}`).then(res=>{
-        console.log(res);
-
-
-        })
+         // var keyword = this.refs.myTextInput.value;
+        // this.props.router.push({
+                   // pathname:'search',
+                   // state:{gid:keyword}
+               // })
     }
     godetails(gid){
         this.props.router.push({
@@ -72,7 +66,7 @@ class HomeComponent extends Component{
                     <ul>
                         <li><i className="home_logo"></i></li>
                         <li><Icon type="search" className="homet_search"/>
-                            <input type="text" placeholder="情人节鲜花" onInput={this.homeSearch.bind(this)}  ref="myTextInput"/>
+                            <input type="text" placeholder="情人节鲜花" onFocus={this.homeSearch.bind(this)}  ref="myTextInput"/>
                         </li>
                         <li><a href="#/login">个人中心</a></li>
                     </ul>

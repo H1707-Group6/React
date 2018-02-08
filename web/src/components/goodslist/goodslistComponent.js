@@ -14,11 +14,11 @@ class GoodslistComponent extends Component{
         text:'列表页'
     }
     componentWillMount(){
-        // var keys = this.props.router.location.state.name
-        // console.log(this.props.router.location.state.name)
+        console.log(this.props.router.location.state.keyword)
+        var keys = this.props.router.location.state.keyword
         console.log(keys)
         
-        key = '永生花';
+        key = keys;
         this.props.getGoods(key);
     }
     goDetalist(gid){

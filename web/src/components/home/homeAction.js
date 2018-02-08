@@ -1,4 +1,4 @@
-import * as ajaxConstants from '../../contants/ajaxContants'
+// import * as ajaxConstants from '../../contants/ajaxContants'
 import * as homeContants from './homeContants'
 
 

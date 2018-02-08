@@ -1,10 +1,9 @@
 import * as homeContants from './homeContants'
-import * as ajaxConstants from '../../contants/ajaxContants'
+// import * as ajaxConstants from '../../contants/ajaxContants'
 
 export default function homeReducer(state={},action){
     let newState = JSON.parse(JSON.stringify(state));
     
-    // You cannot PUSH the same path using hash history
     switch(action.type){
         case homeContants.HOME_REQUESTING:
             newState.status = 0;
