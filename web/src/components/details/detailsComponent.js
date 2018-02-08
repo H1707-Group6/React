@@ -9,7 +9,6 @@ const alert = Modal.alert;
 
 import * as action from './detailsAction'
 
-// import { Button } from 'antd-mobile';
 
 
 import './details.scss'
@@ -139,9 +138,7 @@ class DetailsComponent extends Component{
                                                                         return <span key={ind}><Icon type="star"/>       
                                                                         </span>
                                                                     })
-                                                                }
-
-                                                                    
+                                                                }                               
                                                                     
                                                                 </p>
                                                             </li>
@@ -174,12 +171,10 @@ class DetailsComponent extends Component{
 
 
 let mapStateToProps = (state)=>{
-  
     return {
         ajaxStatus:state.details.status,
         ajaxResult:state.details.results|| [],
         ajaxComment:state.details.result||[]
-        // ajaxComment:state.details.results|| []
     }
 }
 
