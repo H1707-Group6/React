@@ -8,6 +8,7 @@ import './home.scss'
 import {Icon} from 'antd';
 import { Grid ,Carousel} from 'antd-mobile';
 import * as action from './homeAction';
+import axios from 'axios'
 
 var res = [];
 class HomeComponent extends Component{
@@ -20,9 +21,6 @@ class HomeComponent extends Component{
              })
             
          })
-        // for(let i=0;i<keyword.length;i++){
-        //     this.props.getHotgoods(keyword[i]);
-        // }
     }
     state = {
         data: ['./src/assets/imgs/banner/banner1.jpg', 
@@ -50,6 +48,23 @@ class HomeComponent extends Component{
         setTimeout(() => {
         }, 100);
     } 
+    homeSearch(){
+         var keyword = this.refs.myTextInput.value;
+        console.log(keyword);
+
+        axios.get(`/getSearch?keyword=${keyword}`).then(res=>{
+        console.log(res);
+
+
+        })
+    }
+    godetails(gid){
+        this.props.router.push({
+                   pathname:'details',
+                   state:{gid:gid}
+               })
+    }
+
     render(){
         return(
             <div className = "home">
@@ -57,9 +72,9 @@ class HomeComponent extends Component{
                     <ul>
                         <li><i className="home_logo"></i></li>
                         <li><Icon type="search" className="homet_search"/>
-                            <input type="text" placeholder="情人节鲜花" />
+                            <input type="text" placeholder="情人节鲜花" onInput={this.homeSearch.bind(this)}  ref="myTextInput"/>
                         </li>
-                        <li><a href="#/login">登录</a></li>
+                        <li><a href="#/login">个人中心</a></li>
                     </ul>
                 </div>
                 <div className="home_m">
@@ -130,16 +145,16 @@ class HomeComponent extends Component{
                             this.props.ajaxResult()[0].map((item,index)=>{
                                 var titles = item.title.split('----');
 
-                                return <li key={item.id}>
+                                return <li key={item.id} onClick={this.godetails.bind(this,item.id)}>
                                             <div className="pro_box">
-                                                <a href="#/goodslist">
+                                                
                                                     <img src={item.mainimg} />
                                                     <div className="pro_text">
                                                         <p className="pro_name">鲜花/{titles[0]}</p>
                                                         <p className="pro_detail">{titles[1]}</p>
                                                         <p className="pro_price">￥{item.price}</p>
                                                     </div>
-                                                </a>
+                                                
                                             </div>
                                         </li>
                                         
@@ -164,16 +179,16 @@ class HomeComponent extends Component{
                             this.props.ajaxResult()[1].map((item,index)=>{
                                 var titles = item.title.split('----');
 
-                                return <li key={item.id}>
+                                return <li key={item.id} onClick={this.godetails.bind(this,item.id)}>
                                             <div className="pro_box">
-                                                <a href="#/goodslist">
+                                                
                                                     <img src={item.mainimg} />
                                                     <div className="pro_text">
                                                         <p className="pro_name">鲜花/{titles[0]}</p>
                                                         <p className="pro_detail">{titles[1]}</p>
                                                         <p className="pro_price">￥{item.price}</p>
                                                     </div>
-                                                </a>
+                                               
                                             </div>
                                         </li>
                                         
@@ -198,16 +213,16 @@ class HomeComponent extends Component{
                             this.props.ajaxResult()[2].map((item,index)=>{
                                 var titles = item.title.split('----');
 
-                                return <li key={item.id}>
+                                return <li key={item.id} onClick={this.godetails.bind(this,item.id)}>
                                             <div className="pro_box">
-                                                <a href="#/goodslist">
+                                                
                                                     <img src={item.mainimg} />
                                                     <div className="pro_text">
                                                         <p className="pro_name">鲜花/{titles[0]}</p>
                                                         <p className="pro_detail">{titles[1]}</p>
                                                         <p className="pro_price">￥{item.price}</p>
                                                     </div>
-                                                </a>
+                                                
                                             </div>
                                         </li>
                                         

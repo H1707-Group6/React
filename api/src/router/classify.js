@@ -4,7 +4,7 @@ module.exports = {
 	register:function(app){
 		app.get('/classify',function(req,res){
 			var keyword = req.query.keyword;
-			console.log(keyword)
+			
 			var sql = `
 					select 
 						g.*
