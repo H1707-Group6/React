@@ -13,7 +13,7 @@ import * as action from './detailsAction'
 import './details.scss'
 
 var key = '';
-sessionStorage.setItem('userId', 2);
+
 
 var username = '';
 class GoodslistComponent extends Component{
