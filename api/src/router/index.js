@@ -6,6 +6,7 @@ app.use(bp.urlencoded({extended: false}));
 
 var list = require('./list')
 var home = require('./home')
+var classify = require('./classify')
 
 var fbook = require('./fbook')
 var order = require('./order')
@@ -34,13 +35,12 @@ module.exports = {
         
         //龙飞宇
         home.register(app);
+        classify.register(app);
 
         //韦职丽
         fbook.register(app);
         order.register(app);
 
-
-        
         app.listen(_port,function(){
             console.log('连接成功')
         });
