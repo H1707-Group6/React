@@ -34,11 +34,16 @@ class GoodslistComponent extends Component{
         // console.log(this.props.router.go('cart'))
        hashHistory.push('cart');
     }
+    goBack(){
+         this.props.router.push({
+            pathname:'goodslist'
+        })
+    }
     render(){
         return(
             <div className='details_f'>
                 <div className = 'details_fh'>
-                    <Icon type="left" />
+                    <Icon type="left" onClick = {this.goBack.bind(this)}/>
                     <Icon type="home" />
                 </div>
                 <div className = 'details_fm'>
@@ -46,10 +51,10 @@ class GoodslistComponent extends Component{
                         this.props.ajaxResult.map((iten)=>{
                             if(typeof(iten.detailsimg)=='string'){
                                    iten.detailsimg = iten.detailsimg.split(',')
-                                   console.log(iten.detailsimg)
+        
                                 }else{
                                     iten.detailsimg = iten.detailsimg
-                                    console.log(iten.detailsimg)
+                                   
                             }  
                             return <div key={iten.id}>
                                     <Carousel className="space-carousel" className = 'details_img'

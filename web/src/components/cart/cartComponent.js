@@ -7,14 +7,16 @@ import './cart.scss'
 import Header from '../header/headerComponent'
 
 let goodsids = [];
-let qty = [];
+let allqty = [];
 let onePrice =[];
 let uid;
+let username;
 let cartlist =[];
  // this.props.getCartList();
 class CartComponent extends Component {
     componentWillMount(){
-        uid = 1;
+        uid  = window.sessionStorage.getItem('userid');
+        username = window.sessionStorage.getItem('username');
         this.props.getCart().then((res)=>{
             cartlist = res.results;
        });
@@ -24,63 +26,74 @@ class CartComponent extends Component {
         total:0       
     }
 
-    goPay(){
+    goPay(){ 
         this.props.router.push({
-            pathname:'order'
+            pathname:'order',
+            state:{
+                total:this.state.total,
+                gid:goodsids,
+                allqty:allqty
+            }
         })
 
     }
     updatas(event,idx){
-           if(event.target.innerText =='+'){
-            cartlist[idx][0].qty = ++ event.target.parentNode.children[1].innerText ;
-            // this.total += Number(onePrice)
-            }else if(event.target.innerText =='-'){
-                cartlist[idx][0].qty = --event.target.parentNode.children[1].innerText ;
-                if( cartlist[idx][0].qty<=1){
-                     cartlist[idx][0].qty = event.target.parentNode.children[1].innerText = 1;
-                }
-               
+       if(event.target.innerText =='+'){
+        cartlist[idx][0].qty = ++ event.target.parentNode.children[1].innerText ;
+        }else if(event.target.innerText =='-'){
+            cartlist[idx][0].qty = --event.target.parentNode.children[1].innerText ;
+            if( cartlist[idx][0].qty<=1){
+                 cartlist[idx][0].qty = event.target.parentNode.children[1].innerText = 1;
             }
-            var checks = document.querySelectorAll('.checks');
-            var oneprice =0;
-            for(var i =0; i<checks.length;i++){
-                if(checks[i].checked){
-                    oneprice  += Number(cartlist[i][0].qty*cartlist[i][0].saleprice) ;
-            
-                }
-            }
-            this.setState({total:oneprice})
+           
         }
+        var checks = document.querySelectorAll('.checks');
+        var oneprice =0;
+        for(var i =0; i<checks.length;i++){
+            if(checks[i].checked){
+                allqty.splice(allqty.indexOf(allqty[i]),1,cartlist[i][0].qty)
+                oneprice  += Number(cartlist[i][0].qty*cartlist[i][0].saleprice) ;
+        
+            }
+        }
+      
+        this.setState({total:oneprice})
+    }
     selectItem(event,gid,idx){ 
         var checks = document.querySelectorAll('.checks');
         var oneprice =0;
         for(var i =0; i<checks.length;i++){
             if(checks[i].checked){
-                if(qty.indexOf(gid) < 0){
-                    qty.push(cartlist[i][0].qty)
-                }   
+                
                 oneprice  += Number(cartlist[i][0].qty*cartlist[i][0].saleprice);
             }
         }
-        console.log(qty)
+
         this.setState({total:oneprice});
 
         if(event.target.checked){
             if(goodsids.indexOf(gid) < 0){
                 goodsids.push(gid)
+            }
+            if(allqty.indexOf(cartlist[idx][0].qty) < 0){
+                allqty.push(cartlist[idx][0].qty)
             } 
-            if(qty.indexOf(gid) < 0){
-                qty.push(gid)
-            }              
-        } else {
+           
+                         
+        }else{
             if(goodsids.indexOf(gid) > - 1){
                 goodsids.splice(goodsids.indexOf(gid), 1)
-            }                
-        } 
+            } 
+            if(allqty.indexOf(cartlist[idx][0].qty) >-1){
+                allqty.splice(allqty.indexOf(cartlist[idx][0].qty),1)
+            } 
+                           
+        }
+        console.log(goodsids,allqty)
     }
     del(event,gid){
 
-        console.log(66,gid,uid)
+        // console.log(66,gid,uid)
         this.props.del(gid,uid)
     }
     render(){

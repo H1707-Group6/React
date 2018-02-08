@@ -5,6 +5,7 @@ import * as action from './goodslistAction'
 
 import './goodslist.scss'
 import Header from '../header/headerComponent'
+import Footer from '../footer/footerComponent'
 var goodstype = ['综合','销量','价钱','鲜花分类'];
 var key;
 var dec = true;
@@ -28,11 +29,15 @@ class GoodslistComponent extends Component{
         // this.props.router.push({pathname:'/details'})
     }
     type(event,type){
-        dec = !dec;
-        this.props.getGoods(key,type,dec);
-       
+        if(type == '鲜花分类'){
+            this.props.router.push({
+                pathname:'classify'
+            })
+        }else{
+            dec = !dec;
+            this.props.getGoods(key,type,dec); 
+        }
     }
-
 
 
     render(){
@@ -66,7 +71,9 @@ class GoodslistComponent extends Component{
                     }
 
                 </div>
-                <div className = 'goodslist_ff'></div>
+                <div className = 'goodslist_ff'>
+                    <Footer></Footer>
+                </div>
             </div>
         )
     }
