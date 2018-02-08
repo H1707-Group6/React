@@ -10,10 +10,16 @@
 		.classify_sousuo{
 			height: 100%;width: 100%;
 			background-color: #FFF;
+			position:relative;
 			input{
 				line-height: 0.8rem;
 				padding-left:0.133333rem;
 				font-size:0.32rem;
+			}
+			.icon-sousuo{
+				font-size:0.373333rem;
+				position:absolute;
+				top: 0.24rem;right: 0.266667rem;
 			}
 		}
 	}
@@ -22,7 +28,66 @@
 		overflow-x:hidden;
 	    display:flex;
 	    flex-direction: column;
-	    background-color: #aaa;
+	    background-color: #f0f0f0;
+	    .classify_ms{
+	    	height: 100% !important;
+	    	width: 100% !important;
+
+	    	.am-tabs-tab-bar-wrap{
+	    		height: 0;
+	    		.am-tabs-default-bar-tab{
+	    			height: 1.28rem !important;
+	    			width: 2.506667rem !important;
+	    			font-size:0.32rem !important;
+	    		}
+	    		.am-tabs-default-bar-tab-active{
+	    			background-color: #FFF !important;
+	    			color: #f60 !important;
+	    		}
+	    	}
+
+	    	.am-tabs-pane-wrap {
+	    		height: 100% !important;
+	    		width: 100% !important;
+	    		background-color: #FFF !important;
+	    		.tabs-r{
+	    			height: 100% !important;
+	    			padding:0.213333rem;
+	    			img{
+	    				display:inline-block;
+	    				height: 2.506667rem;
+	    				width: 7.066667rem;
+	    			}
+		    		.tabs_p{
+						margin-top: 0.506667rem;
+					    margin-bottom: 0.56rem;
+					    font-size: 0.32rem;
+					    overflow:hidden;
+					    a{
+					    	float:right;
+					    	color:#232323;
+					    }
+		    		}
+		    		ul{
+		    			li{
+		    				float: left;
+						    width: 33.3%;
+						    height: 2.24rem;
+						    text-align: center;
+						    img{
+						    	width: 1.493333rem;
+						    	height: 1.626667rem;
+						    	margin:0 auto;
+						    }
+						    span{
+						    	display:block;
+						    	margin-top:0.066667rem;
+						    }
+		    			}
+		    		}
+	    		}
+	    	}
+	    }
 	}
 	.classify_f{
 		height: 1.333333rem;

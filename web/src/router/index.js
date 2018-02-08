@@ -16,7 +16,7 @@ import RegisterComponent from '../components/register/registerComponent'
 import OrderComponent from '../components/order/orderComponent'
 import MineComponent from '../components/mine/mineComponent'
 import NopayComponent from '../components/nopay/nopayComponent'
-
+import AllorderComponent from '../components/allorder/allorderComponent'
 
 const routes = (
     <Route>
@@ -28,6 +28,7 @@ const routes = (
         <Route path = 'order' component={OrderComponent}/>
         <Route path = 'mine' component={MineComponent}/>
         <Route path = 'nopay' component={NopayComponent}/>
+        <Route path = 'allorder' component={AllorderComponent}/>
         <Route path = '/details' component={DetailsComponent}/>
         <Route path = 'cart(/:id)' component={CartComponent}/>
     </Route>

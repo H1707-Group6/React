@@ -1,29 +1,27 @@
 import React,{Component} from 'react'
 import {Icon} from 'antd';
 import {connect} from 'react-redux'
-import * as action from './nopayAction'
-import './nopay.scss'
+import * as action from './allorderAction'
+import './allorder.scss'
 import Header from '../header/headerComponent'
 var uid;
 
-class NopayComponent extends Component{
+class AllorderComponent extends Component{
     state = {
-        text:'未支付订单'
+        text:'全部订单'
     }
     componentWillMount(){
-        uid = window.sessionStorage.getItem('userId');
-        console.log(uid);
-        this.props.nopayorder(uid);
+        uid = window.sessionStorage.getItem('uid');
+        this.props.allorder(uid);
     }
-    del(event,gid,orderid){
-        console.log(event.target);
-        this.props.delorder(uid,gid,orderid);
+    nopayDel(event){
+        this.props.orderdelect(uid,date);
+        // console.log(this.event.target);
     }
     render(){
-        var self = this;
         return (
-            <div className="nopay">
-                <Header  text = {this.state.text}></Header>
+            <div className="allorder">
+               <Header  text = {this.state.text}></Header>
                 <main>
                     <div className="spmc">
                         {
@@ -31,7 +29,7 @@ class NopayComponent extends Component{
                                 if(item.status =='0'){
                                     item.cc= '未支付'
                                 }else{
-                                    item.cc = '已经支付'
+                                    item.cc = '已支付'
 
                                 }
                                 return <ul key={index}>
@@ -44,8 +42,8 @@ class NopayComponent extends Component{
                                             <p>收货人：<span>{}</span></p>
                                             <p>配送时间：<span>{item.date}</span></p>
                                         </div>
-                                        <div className="btn_del">
-                                            <span onClick={(event)=>self.del(event,item.gid,item.orderid)}>删除</span>
+                                        <div className="btn_del" onClick={(event)=>this.nopayDel(event)}>
+                                            <span>删除</span>
                                         </div>
                                    </li>
                                 </ul>
@@ -58,11 +56,11 @@ class NopayComponent extends Component{
     }
 }
 let mapStateToProps = (state)=>{
-// console.log(state.nopay.result);
+console.log(state.nopay.result);
     return {
-        ajaxStatus:state.nopay.status,
-        ajaxResult:state.nopay.result|| []
+        ajaxStatus:state.allorder.status,
+        ajaxResult:state.allorder.result|| []
     }
 }
 
-export default connect (mapStateToProps,action)(NopayComponent);
+export default connect (mapStateToProps,action)(AllorderComponent);

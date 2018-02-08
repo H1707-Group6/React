@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import Footer from '../footer/footerComponent'
 import Tabs from './tabsComponent'
+import {Link} from 'react-router'
 
 import './home.scss'
 import {Icon} from 'antd';
@@ -9,15 +10,19 @@ import { Grid ,Carousel} from 'antd-mobile';
 import * as action from './homeAction';
 
 var res = [];
- class HomeComponent extends Component{
-
+class HomeComponent extends Component{
     componentWillMount(){
-        
+       
         var keyword = ['鲜花','永生花','礼品'];
-        for(let i=0;i<keyword.length;i++){
-
-            this.props.getHotgoods(keyword[i]);
-        }
+         this.props.getHotgoods(keyword[0]).then(()=>{
+             this.props.getHotgoods(keyword[1]).then(()=>{
+                this.props.getHotgoods(keyword[2])
+             })
+            
+         })
+        // for(let i=0;i<keyword.length;i++){
+        //     this.props.getHotgoods(keyword[i]);
+        // }
     }
     state = {
         data: ['./src/assets/imgs/banner/banner1.jpg', 
@@ -54,7 +59,7 @@ var res = [];
                         <li><Icon type="search" className="homet_search"/>
                             <input type="text" placeholder="情人节鲜花" />
                         </li>
-                        <li><a>登录</a></li>
+                        <li><a href="#/login">登录</a></li>
                     </ul>
                 </div>
                 <div className="home_m">
@@ -249,7 +254,7 @@ let mapStateToProps = (state)=>{
     if(state.home.status == 1){
         res.push(state.home.result);
     }
-    // console.log(res);
+
     return {
         ajaxStatus:state.home.status,
         ajaxResult:function(){

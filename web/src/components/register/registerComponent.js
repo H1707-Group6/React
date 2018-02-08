@@ -3,13 +3,15 @@ import {connect} from 'react-redux'
 import './register.scss'
 import {Icon} from 'antd';
 import * as action from './registerAction'
+import Header from '../header/headerComponent'
 class RegisterComponent extends Component{
     // componentWillMount(){
     //         console.log(this.props.randomCode()) 
     // }
     state = {
         phone:'',
-        pwd:''
+        pwd:'',
+        text:'注册'
     }
     //验证码判断
     codeCheck(event){
@@ -60,8 +62,10 @@ class RegisterComponent extends Component{
     //注册
     register(event){
         this.props.register(this.refs.username.value,this.refs.password.value).then((res)=>{
-            console.log(res.fields);
-            if(res.fields == undefined){
+            if(this.refs.username.value == '' || this.refs.password.value == ''){
+                alert('您还未填写注册信息！');
+            }else{
+            console.log(666);
                 this.props.router.push({
                     pathname:'login'
                 })
@@ -71,7 +75,7 @@ class RegisterComponent extends Component{
     render(){
         return (
             <div className="register">
-                <header></header>
+                <Header  text = {this.state.text}></Header>
                 <main>
                     <div className="content">
                         <nav className="menus">

@@ -1,9 +1,23 @@
 import React,{Component} from 'react'
-import './mine.scss'
 import {Icon} from 'antd';
 import {connect} from 'react-redux'
 import * as action from './mineAction'
+import { Modal, Button, WhiteSpace, WingBlank, Toast } from 'antd-mobile';
 var uid;
+var self = this;
+const alert = Modal.alert;
+// const showAlert = () => {
+//   const alertInstance = alert('退出登入', '你确定要退出吗?', [
+//     { text: '关闭', onPress: () => {style: 'default'} },
+//     { text: '确定', onPress: () => {window.sessionStorage.removeItem('userId'),slef.props.router.push({ pathname:'login'})}},
+//   ]);
+//   setTimeout(() => {
+//     // 可以调用close方法以在外部close  onpres:function(){}
+//     console.log('auto close');
+//     alertInstance.close();
+//   }, 500000);
+// };
+import './mine.scss'
 class MineComponent extends Component{
         state = {
             text:''
@@ -21,10 +35,10 @@ class MineComponent extends Component{
             }
         }
         //跳转到订单
-        genorder(event){
-            this.props.genorder(uid).then((res)=>{
-                console.log(res);
-            });
+        gotoAllorder(){
+            this.props.router.push({
+                pathname:'allorder'
+            })
         }
         //跳到未付款订单
         gotonopay(){
@@ -44,13 +58,39 @@ class MineComponent extends Component{
                 })  
             } 
         }
+        //调到home页面
+        gotohome(){
+            this.props.router.push({
+                pathname:'/'
+            })
+        }
       render(){
         return (
             <div className="mine">
             	<div className="user_info">
             		<img src="https://img02.hua.com/m/member/center/backgroundv3.png"/>
             		<div className="header_bar">
-            			<Icon type="left" />
+            			<Icon type="left" onClick={()=>this.gotohome()}/>
+                        
+                        <Icon type="setting"  
+                            
+                                onClick={() => {if(uid != null){
+                                    alert('退出登入', '你确定要退出吗？', [
+                                        { text: '关闭', onPress: () => console.log('关闭') },
+                                        {
+                                        text: '确定',
+                                        onPress: () => new Promise((resolve) => {
+                                            window.sessionStorage.removeItem('userId');
+                                            this.props.router.push({ pathname:'login'});
+                                            Toast.info('退出成功', 1);
+                                            setTimeout(resolve, 100);
+                                        }),
+                                      },
+                                    ])}
+                                }
+                            }
+                      
+                        />
             		</div>
             		<div className="no_login" onClick={()=>this.gotoLogin()}>
             			<p>Hi,欢迎来到花礼网</p>
@@ -71,7 +111,7 @@ class MineComponent extends Component{
           						<Icon type="form" />
             					<p>待评价</p>
             				</li>
-            				<li onClick={(event)=>this.genorder(event)}>
+            				<li onClick={()=>this.gotoAllorder()}>
           						<Icon type="solution" />
             					<p>全部订单</p>
             				</li>
