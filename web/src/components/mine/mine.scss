@@ -53,6 +53,19 @@
 						font-size: 0.64rem;
 					}
 				}
+				.waite{
+					position: relative;
+					span{
+						display:block;
+						width: 13px;
+						height: 13px;
+						border-radius: 50%;
+						position: absolute;
+						background: #ff6600;
+						left:65%;
+						top:0;
+					}
+				}
 			}
 		}
 		.link_box{

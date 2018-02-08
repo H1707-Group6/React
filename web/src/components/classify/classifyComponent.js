@@ -37,6 +37,14 @@ class ClassifyComponent extends Component{
         qiaokeli:['进口巧克力','巧罗巧克力','瑞士莲巧巧克力','巧蔻巧克力'],
         lipin:['水晶内雕','永生瓶花','音乐盒','化妆镜','品牌巧克力','品牌公仔'],
 	}
+	goGoodslists(gid){
+		console.log(gid);
+        this.props.router.push({
+                   pathname:'goodslist',
+                   state:{keyword:gid}
+               })
+    }
+
 	render(){
 		return(
 			<div className="classify">
@@ -53,8 +61,7 @@ class ClassifyComponent extends Component{
 				            animated={false}
 				            tabBarPosition="left"
 				            tabDirection="vertical"
-				            // onChange={this.tabsFli.bind(this,event)}
-				            
+				          
 				         >
 				            <div className="tabs-r" style={{ display: 'flex', justifyContent: 'center'}}>
 				             	<div >
@@ -68,7 +75,7 @@ class ClassifyComponent extends Component{
 										{
 				                            this.props.ajaxResult()[0].map((item,index)=>{
 
-				                                return <li key={item.id}>
+				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[0].title)}>
 				                                            <img src={item.mainimg} />
 															<span>{this.state.xianhua[index]}</span>
 				                                        </li>     
@@ -89,7 +96,7 @@ class ClassifyComponent extends Component{
 										{
 				                            this.props.ajaxResult()[1].map((item,index)=>{
 
-				                                return <li key={item.id}>
+				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[1].title)}>
 				                                            <img src={item.mainimg} />
 															<span>{this.state.yongsheng[index]}</span>
 				                                        </li>   
@@ -111,7 +118,7 @@ class ClassifyComponent extends Component{
 										{
 				                            this.props.ajaxResult()[2].map((item,index)=>{
 
-				                                return <li key={item.id}>
+				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[2].title)}>
 				                                            <img src={item.mainimg} />
 															<span>{this.state.dangao[index]}</span>
 				                                        </li>      
@@ -133,7 +140,7 @@ class ClassifyComponent extends Component{
 										{
 				                            this.props.ajaxResult()[3].map((item,index)=>{
 
-				                                return <li key={item.id}>
+				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[3].title)}>
 				                                            <img src={item.mainimg} />
 															<span>{this.state.qiaokeli[index]}</span>
 				                                        </li>
@@ -154,7 +161,7 @@ class ClassifyComponent extends Component{
 										</li>
 										{
 				                            this.props.ajaxResult()[4].map((item,index)=>{
-				                                return <li key={item.id}>
+				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[4].title)}>
 				                                            <img src={item.mainimg} />
 															<span>{this.state.lipin[index]}</span>
 				                                        </li>

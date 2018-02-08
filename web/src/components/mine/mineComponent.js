@@ -2,28 +2,19 @@ import React,{Component} from 'react'
 import {Icon} from 'antd';
 import {connect} from 'react-redux'
 import * as action from './mineAction'
+
 import { Modal, Button, WhiteSpace, WingBlank, Toast } from 'antd-mobile';
+import './mine.scss'
 var uid;
 var self = this;
 const alert = Modal.alert;
-// const showAlert = () => {
-//   const alertInstance = alert('退出登入', '你确定要退出吗?', [
-//     { text: '关闭', onPress: () => {style: 'default'} },
-//     { text: '确定', onPress: () => {window.sessionStorage.removeItem('userId'),slef.props.router.push({ pathname:'login'})}},
-//   ]);
-//   setTimeout(() => {
-//     // 可以调用close方法以在外部close  onpres:function(){}
-//     console.log('auto close');
-//     alertInstance.close();
-//   }, 500000);
-// };
-import './mine.scss'
 class MineComponent extends Component{
         state = {
             text:''
         }
         componentWillMount(){
             uid = window.sessionStorage.getItem('userId');
+            console.log(uid);
             if(uid){
                 this.setState({
                     text:'登入成功'
@@ -64,6 +55,18 @@ class MineComponent extends Component{
                 pathname:'/'
             })
         }
+        //跳到待评价页面
+        gotoevaluate(){
+            this.props.router.push({
+                pathname:'evaluate'
+            })
+        }
+        //跳转到积分页面
+        gotointegral(){
+            this.props.router.push({
+                pathname:'integral'
+            })
+        }
       render(){
         return (
             <div className="mine">
@@ -98,16 +101,16 @@ class MineComponent extends Component{
             		</div>
             		<div className="top_bar">
             			<ul>
-            				<li onClick={()=>this.gotonopay()}>
+            				<li onClick={()=>this.gotonopay()} className="waite">
           						<Icon type="wallet" />
             					<p>待付款</p>
                                 <span>{}</span>
             				</li>
-            				<li>
+            				<li onClick={()=>this.gotoevaluate()}>
           						<Icon type="car" />
             					<p>今日配送</p>
             				</li>
-            				<li>
+            				<li onClick={()=>this.gotoevaluate()}>
           						<Icon type="form" />
             					<p>待评价</p>
             				</li>
@@ -123,7 +126,7 @@ class MineComponent extends Component{
             					<Icon type="printer" />
             					<p>优惠卷</p>
             				</li>
-            				<li>
+            				<li onClick={()=>this.gotointegral()}>
             					<Icon type="codepen" />
             					<p>积分</p>
             				</li>

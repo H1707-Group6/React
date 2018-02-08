@@ -24,5 +24,24 @@ module.exports = {
 				res.send(data);
 			})
 		})
+
+		app.get('/getSearch',function(req,res){
+			var keyword = req.query.keyword;
+
+			var sql = `
+					select 
+						*
+					from 
+						goods 
+					where title  Like  '%${keyword}%'
+					
+			`;
+
+			db.select(sql,function(data){
+				res.send(data);
+			})
+
+
+		})
 	}
 }
