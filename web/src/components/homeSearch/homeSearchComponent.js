@@ -14,7 +14,10 @@ class HomeSearchs extends Component{
 	}
 	render(){
 		return(
-			<div className="searchs"></div>
+			<div className="searchs">
+				<div className="seach_heah"></div>
+				<div className="seach_main"></div>
+			</div>
 
 		)
 	}
