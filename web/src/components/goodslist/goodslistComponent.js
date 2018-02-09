@@ -14,7 +14,7 @@ class GoodslistComponent extends Component{
         text:'列表页'
     }
     componentWillMount(){
-        var keys = this.props.router.location.state.keyword;
+        var keys = this.props.router.location.state.keyword ;
        
         key = keys;
         this.props.getGoods(key);

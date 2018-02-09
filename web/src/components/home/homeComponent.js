@@ -13,13 +13,12 @@ import axios from 'axios'
 var res = [];
 class HomeComponent extends Component{
     componentWillMount(){
-       
         var keyword = ['鲜花','永生花','礼品'];
          this.props.getHotgoods(keyword[0]).then(()=>{
-             this.props.getHotgoods(keyword[1]).then(()=>{
+            this.props.getHotgoods(keyword[1]).then(()=>{
                 this.props.getHotgoods(keyword[2])
-             })
-         })
+            })
+        })
     }
     state = {
         data: ['./src/assets/imgs/banner/banner1.jpg', 
@@ -45,18 +44,17 @@ class HomeComponent extends Component{
         setTimeout(() => {
         }, 100);
     } 
-    homeSearch(){
-         // var keyword = this.refs.myTextInput.value;
-        // this.props.router.push({
-                   // pathname:'search',
-                   // state:{gid:keyword}
-               // })
+    homeSearch(){ 
+        this.props.router.push({
+            pathname:'search',
+
+        })
     }
     godetails(gid){
         this.props.router.push({
-                   pathname:'details',
-                   state:{gid:gid}
-               })
+            pathname:'details',
+            state:{gid:gid}
+        })
     }
 
     render(){
@@ -150,8 +148,7 @@ class HomeComponent extends Component{
                                                     </div>
                                                 
                                             </div>
-                                        </li>
-                                        
+                                        </li>     
                             })
                         }
                         </ul>
@@ -185,11 +182,9 @@ class HomeComponent extends Component{
                                                
                                             </div>
                                         </li>
-                                        
                             })
                         }
                         </ul>
-
                         <div >
                             <a href="#/goodslist" className="more_btn">
                             全部永生花<span className="arrow_right"></span></a>
@@ -218,12 +213,10 @@ class HomeComponent extends Component{
                                                     </div>
                                                 
                                             </div>
-                                        </li>
-                                        
+                                        </li>   
                             })
                         }
                         </ul>
-
                         <div >
                             <a href="#/goodslist" className="more_btn">
                             全部礼品<span className="arrow_right"></span></a>

@@ -13,7 +13,7 @@ export default function SearchReducer(state={},action){
             // console.log(action);
             newState.result = action.result.results;
             break;
-        case SearchContants.SEARCH_REQUESTERROR :
+        case SearchContants.SEARCH_REQUESTERROR:
             newState.status = -1;
             newState.result = action.result.data;
             break;

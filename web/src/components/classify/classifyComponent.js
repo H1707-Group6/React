@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {Icon} from 'antd'
-import { Grid ,Carousel,Tabs,WhiteSpace} from 'antd-mobile';
+import { Grid ,Carousel,Tabs,WhiteSpace} from 'antd-mobile'
 
 import * as action from './classifyAction'
 import Footer from '../footer/footerComponent'
@@ -44,13 +44,18 @@ class ClassifyComponent extends Component{
                    state:{keyword:gid}
                })
     }
-
+    homeSearch(){ 
+        this.props.router.push({
+                   pathname:'search',
+                   // state:{gid:keyword}
+               })
+    }
 	render(){
 		return(
 			<div className="classify">
 				<div className="classify_h">
 					<div className="classify_sousuo">
-						<input type="text" placeholder="搜索鲜花、蛋糕、礼品" />
+						<input type="text" placeholder="搜索鲜花、蛋糕、礼品" onFocus={this.homeSearch.bind(this)}/>
 						<Icon type="search" size={'md'} className="icon-sousuo"/>
 					</div>
 				</div>

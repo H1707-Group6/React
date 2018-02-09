@@ -63,9 +63,7 @@ class DetailsComponent extends Component{
         })
     }
     goBack(){
-        this.props.router.push({
-            pathname:'goodslist'
-        })
+        history.go(-1);
     }
     render(){
 
