@@ -4,7 +4,7 @@ import {Route} from 'react-router'
 //龙飞宇
 import HomeComponent from '../components/home/homeComponent'
 import ClassifyComponent from '../components/classify/classifyComponent'
-import HomeSearch from '../components/homeSearch/homeSearchComponent'
+import SearchComponent from '../components/homeSearch/SearchComponent'
 
 //冯志伟
 import GoodslistComponent from '../components/goodslist/goodslistComponent'
@@ -25,7 +25,7 @@ const routes = (
     <Route>
         <Route path = '/' component={HomeComponent}/>
         <Route path = '/classify' component={ClassifyComponent}/>
-        
+        <Route path = '/search' component={SearchComponent}/>
         <Route path = 'goodslist' component={GoodslistComponent}/>
         <Route path = 'login' component={LoginComponent}/>
         <Route path = 'register' component={RegisterComponent}/>

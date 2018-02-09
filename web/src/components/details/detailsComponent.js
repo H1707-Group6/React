@@ -11,7 +11,6 @@ import * as action from './detailsAction'
 
 // import { Button } from 'antd-mobile';
 
-
 import './details.scss'
 
 var key = '';
@@ -90,9 +89,7 @@ class DetailsComponent extends Component{
        
     }
     goBack(){
-        this.props.router.push({
-            pathname:'goodslist'
-        })
+        history.go(-1);
     }
     render(){
 

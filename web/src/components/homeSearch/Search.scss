@@ -1,0 +1,95 @@
+.searchs{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.seach_heah{
+		height: 1.173333rem;
+		background-color: #ddd;
+		.home_h ul{
+			margin: 0.186667rem 0;
+			height: 0.8rem;
+			li{
+				position:relative;
+				float:left;
+				
+				height: 0.8rem;
+				&:first-child{
+					width:1.293333rem;
+					.home_logo{
+						width: 0.866667rem;
+						height: 0.613333rem;
+						background: url("../../assets/imgs/other/fanhui.png") no-repeat;
+						position:absolute;
+						left: 0.213333rem;top: 0.093333rem;
+					}
+				}
+				&:nth-child(2){
+					width:6.533333rem;
+					position:relative;
+					.homet_search{
+						position:absolute;
+						top: 0.226667rem;left: 0.186667rem;
+						font-size:0.4rem;
+						color:#aaa;
+					}
+					input{
+						width: 8.02rem;
+						height: 0.72rem;
+						margin:0.04rem 0;
+						border-radius:0.08rem;
+						padding-left:0.746667rem;
+						font-size:0.4rem;
+						background-color: #eee;
+					}
+				}
+				&:last-child{
+					width: 1.133333rem;
+					height: 0.8rem;
+					text-align:center;
+					
+					a{
+						color:#000;
+						font-size:0.4rem;
+						line-height: 0.8rem;
+						// padding:0 0.4rem;
+						
+					}
+				}
+				
+			}
+		}
+	}
+	.seach_main{
+		flex:1;
+		overflow-x:hidden;
+	    display:flex;
+	    flex-direction: column;
+	    background-color: #eee;
+		padding:0 0.266667rem;
+		.content{
+			
+			margin-bottom:0.4rem;
+			.content_li{
+				font-size:0.48rem;
+			}
+			li{
+				font-size:0.4rem;
+				padding:0.2rem;
+				border-bottom:0.026667rem solid #ccc;
+			}
+		}
+		.jilu{
+			text-align:center;
+			span{
+				font-size:0.32rem;
+				background-color: #CCC;
+				padding:0.133333rem 0.266667rem;
+				border:0.013333rem solid #ccc;
+				
+			}
+			
+		}
+	}
+
+}

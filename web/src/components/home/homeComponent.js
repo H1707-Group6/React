@@ -13,14 +13,12 @@ import axios from 'axios'
 var res = [];
 class HomeComponent extends Component{
     componentWillMount(){
-       
         var keyword = ['鲜花','永生花','礼品'];
          this.props.getHotgoods(keyword[0]).then(()=>{
-             this.props.getHotgoods(keyword[1]).then(()=>{
+            this.props.getHotgoods(keyword[1]).then(()=>{
                 this.props.getHotgoods(keyword[2])
-             })
-            
-         })
+            })
+        })
     }
     state = {
         data: ['./src/assets/imgs/banner/banner1.jpg', 
@@ -43,26 +41,20 @@ class HomeComponent extends Component{
         catetext:['爱情鲜花','友情鲜花','送长辈鲜花','商务鲜花'],
     }
     componentDidMount(){
-
-        // simulate img loading
         setTimeout(() => {
         }, 100);
     } 
-    homeSearch(){
-         var keyword = this.refs.myTextInput.value;
-        console.log(keyword);
-
-        axios.get(`/getSearch?keyword=${keyword}`).then(res=>{
-        console.log(res);
-
+    homeSearch(){ 
+        this.props.router.push({
+            pathname:'search',
 
         })
     }
     godetails(gid){
         this.props.router.push({
-                   pathname:'details',
-                   state:{gid:gid}
-               })
+            pathname:'details',
+            state:{gid:gid}
+        })
     }
 
     render(){
@@ -72,7 +64,7 @@ class HomeComponent extends Component{
                     <ul>
                         <li><i className="home_logo"></i></li>
                         <li><Icon type="search" className="homet_search"/>
-                            <input type="text" placeholder="情人节鲜花" onInput={this.homeSearch.bind(this)}  ref="myTextInput"/>
+                            <input type="text" placeholder="情人节鲜花" onFocus={this.homeSearch.bind(this)}  ref="myTextInput"/>
                         </li>
                         <li><a href="#/login">个人中心</a></li>
                     </ul>
@@ -156,8 +148,7 @@ class HomeComponent extends Component{
                                                     </div>
                                                 
                                             </div>
-                                        </li>
-                                        
+                                        </li>     
                             })
                         }
                         </ul>
@@ -191,11 +182,9 @@ class HomeComponent extends Component{
                                                
                                             </div>
                                         </li>
-                                        
                             })
                         }
                         </ul>
-
                         <div >
                             <a href="#/goodslist" className="more_btn">
                             全部永生花<span className="arrow_right"></span></a>
@@ -224,12 +213,10 @@ class HomeComponent extends Component{
                                                     </div>
                                                 
                                             </div>
-                                        </li>
-                                        
+                                        </li>   
                             })
                         }
                         </ul>
-
                         <div >
                             <a href="#/goodslist" className="more_btn">
                             全部礼品<span className="arrow_right"></span></a>

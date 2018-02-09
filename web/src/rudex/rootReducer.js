@@ -15,6 +15,7 @@ import cart from '../components/cart/cartReducer'
 //龙飞宇
 import home from '../components/home/homeReducer'
 import classify from '../components/classify/classifyReducer'
+import search from '../components/homeSearch/SearchReducer'
 
 export default combineReducers({
     goodslist,
@@ -22,6 +23,7 @@ export default combineReducers({
     cart,
     home,
     classify,
+    search,
     login,
     register,
     nopay,
