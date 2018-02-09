@@ -5,7 +5,7 @@ import { Grid ,Carousel,Tabs,WhiteSpace} from 'antd-mobile'
 
 import './homeSearch.scss'
 
-class HomeSearchs extends Component{
+export default class HomeSearchs extends Component{
 	componentWillMount(){
 
 	}

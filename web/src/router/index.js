@@ -24,7 +24,7 @@ const routes = (
     <Route>
         <Route path = '/' component={HomeComponent}/>
         <Route path = '/classify' component={ClassifyComponent}/>
-        <Route path = '/HomeSearch' component={HomeSearchComponent}/>
+        
         <Route path = 'goodslist' component={GoodslistComponent}/>
         <Route path = 'login' component={LoginComponent}/>
         <Route path = 'register' component={RegisterComponent}/>
@@ -40,3 +40,4 @@ const routes = (
 
 )
 export default routes;
+// <Route path = '/HomeSearch' component={HomeSearchComponent}/>
