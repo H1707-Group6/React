@@ -5,14 +5,14 @@ import * as allorderContants from './allorderContants'
 export default function goodslistReducer(state={},action){
     let newState = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case (ajaxConstants.AJAX_REQUESTING):
+        case (allorderContants.ALLORDER_REQUESTING):
             newState.status = 0;
             break;
-        case ajaxConstants.AJAX_REQUESTED:
+        case allorderContants.ALLORDER_REQUESTED:
             newState.status = 1;
             newState.result = action.result.results;
             break;
-        case (ajaxConstants.AJAX_REQUESTERROR):
+        case (allorderContants.ALLORDER_REQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;
             break;
