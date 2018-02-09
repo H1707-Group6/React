@@ -8,18 +8,24 @@ import './home.scss'
 import {Icon} from 'antd';
 import { Grid ,Carousel} from 'antd-mobile';
 import * as action from './homeAction';
-import axios from 'axios'
+ 
 
 var res = [];
 class HomeComponent extends Component{
     componentWillMount(){
         var keyword = ['鲜花','永生花','礼品'];
-         this.props.getHotgoods(keyword[0]).then(()=>{
-            this.props.getHotgoods(keyword[1]).then(()=>{
-                this.props.getHotgoods(keyword[2])
-            })
-        })
+        for(let i=0;i<keyword.length;i++){
+            
+            this.props.getHotgoods(keyword[i]);
+        }
+
+        //  this.props.getHotgoods(keyword[0]).then(()=>{
+        //     this.props.getHotgoods(keyword[1]).then(()=>{
+        //         this.props.getHotgoods(keyword[2])
+        //     })
+        // })
     }
+
     state = {
         data: ['./src/assets/imgs/banner/banner1.jpg', 
                 './src/assets/imgs/banner/banner4.jpg',
@@ -58,6 +64,7 @@ class HomeComponent extends Component{
     }
 
     render(){
+
         return(
             <div className = "home">
                 <div className="home_h">
@@ -261,6 +268,7 @@ let mapStateToProps = (state)=>{
         ajaxStatus:state.home.status,
         ajaxResult:function(){
             if(res.length == 3){
+                // this.render();
                 return res;
             }else{
                 return [[],[],[]];
