@@ -19,11 +19,6 @@ class HomeComponent extends Component{
             this.props.getHotgoods(keyword[i]);
         }
 
-        //  this.props.getHotgoods(keyword[0]).then(()=>{
-        //     this.props.getHotgoods(keyword[1]).then(()=>{
-        //         this.props.getHotgoods(keyword[2])
-        //     })
-        // })
     }
 
     state = {
@@ -64,7 +59,6 @@ class HomeComponent extends Component{
     }
 
     render(){
-
         return(
             <div className = "home">
                 <div className="home_h">
