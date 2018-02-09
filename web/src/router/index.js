@@ -40,3 +40,4 @@ const routes = (
 
 )
 export default routes;
+// <Route path = '/HomeSearch' component={HomeSearchComponent}/>

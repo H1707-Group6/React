@@ -10,7 +10,6 @@ const alert = Modal.alert;
 import * as action from './detailsAction'
 
 
-
 import './details.scss'
 
 var key = '';

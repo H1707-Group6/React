@@ -17,7 +17,6 @@ export default function homeReducer(state={},action){
             newState.status = 1;
             newState.result = action.result.results;
             break;
-
     }
     return newState;
 }
