@@ -11,14 +11,16 @@ class AllorderComponent extends Component{
         text:'全部订单'
     }
     componentWillMount(){
-        uid = window.sessionStorage.getItem('uid');
+        uid = window.sessionStorage.getItem('userId');
+
         this.props.allorder(uid);
     }
-    nopayDel(event){
-        this.props.orderdelect(uid,date);
-        // console.log(this.event.target);
+    Del(event,gid,orderid){
+        
+        this.props.delorder(uid,gid,orderid);
     }
     render(){
+        var self = this;
         return (
             <div className="allorder">
                <Header  text = {this.state.text}></Header>
@@ -42,7 +44,7 @@ class AllorderComponent extends Component{
                                             <p>收货人：<span>{}</span></p>
                                             <p>配送时间：<span>{item.date}</span></p>
                                         </div>
-                                        <div className="btn_del" onClick={(event)=>this.nopayDel(event)}>
+                                        <div className="btn_del" onClick={(event)=>self.Del(event,item.gid,item.orderid)}>
                                             <span>删除</span>
                                         </div>
                                    </li>
@@ -56,7 +58,7 @@ class AllorderComponent extends Component{
     }
 }
 let mapStateToProps = (state)=>{
-console.log(state.nopay.result);
+
     return {
         ajaxStatus:state.allorder.status,
         ajaxResult:state.allorder.result|| []

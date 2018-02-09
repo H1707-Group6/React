@@ -1,6 +1,6 @@
 import http from 'superagent'
 
-let baseUrl = 'http://localhost:88/'
+let baseUrl = 'http://10.3.136.11:88/'
 const geturl = (url)=>{
     if(url.startsWith('http')){
         return url;

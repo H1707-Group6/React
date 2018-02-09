@@ -16,7 +16,11 @@ import './details.scss'
 
 var key = '';
 
+var total;
+var gid_one =[];
+var qty_one = [];
 var username = '';
+
 class DetailsComponent extends Component{
     
     componentWillMount(){
@@ -37,31 +41,53 @@ class DetailsComponent extends Component{
         num:''
     }
     addCart(){
-        this.props.addCart(key,username).then((res)=>{
-            if(res.results.protocol41 ==true){
-                alert('加入成功', '你确定要退出吗？', [
-                    { text: '关闭', onPress: () => console.log('关闭') },
-                    {
-                    text: '确定',
-                    onPress: () => new Promise((resolve) => {
-                      
-                        setTimeout(resolve, 100);
-                    }),
-                  },
-                ])
-                       
-                         
-            }
-        })
+        if(username!=null){
+            this.props.addCart(key,username).then((res)=>{
+                if(res.results.protocol41 ==true){
+                    alert('加入成功', '', [
+                        { text: '关闭', onPress: () => console.log('关闭') },
+                        {
+                        text: '确定',
+                        onPress: () => new Promise((resolve) => {
+                            setTimeout(resolve, 100);
+                        }),
+                      },
+                    ])
+                           
+                             
+                }
+            })
+            
+        }else{
+             this.props.router.push({
+                pathname:'login'})
+        }
     }
     goCart(){
-        
-       hashHistory.push('cart');
+        if(username!=null){
+            hashHistory.push('cart');
+        }else{
+            this.props.router.push({
+                pathname:'login'})
+        }
+       
     }
-    goBuy(){
-        this.props.router.push({
-            pathname:'order'
-        })
+    goBuy(saleprice){
+        console.log(total)
+         if(username!=null){
+            this.props.router.push({
+                pathname:'order',
+                state:{
+                    total:total,
+                    gid:gid_one,
+                    allqty:qty_one
+                }
+            })
+        }else{
+            this.props.router.push({
+                pathname:'login'})
+        }
+       
     }
     goBack(){
         this.props.router.push({
@@ -80,6 +106,9 @@ class DetailsComponent extends Component{
                 <div className = 'details_fm'>
                     {
                         this.props.ajaxResult.map((iten)=>{
+                            total = iten.saleprice;
+                            gid_one=[iten.id];
+                            qty_one=[iten.qty];
                             if(typeof(iten.detailsimg)=='string'){
                                    iten.detailsimg = iten.detailsimg.split(',')
         
@@ -140,8 +169,7 @@ class DetailsComponent extends Component{
                                                                         </span>
                                                                     })
                                                                 }
-
-                                                                    
+            
                                                                     
                                                                 </p>
                                                             </li>

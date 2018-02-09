@@ -17,11 +17,11 @@ module.exports = {
 					inner join orderproduct od on o.id = od.orderid
 					inner join goods g on g.id = od.gid
 				where 
-					userid = 2`;
+					userid = ${uid}`;
 				
 				// console.log(sql);
 			db.select(sql,(date)=>{
-				console.log(date);
+				
 				res.send(date);
 			})
 		}),
@@ -31,6 +31,8 @@ module.exports = {
 			let gid = req.body.gid;
 			let qty = req.body.qty;
 			let total = req.body.total;
+			console.log(uid,gid,qty,total)
+
 			let	sql = `insert into orders(userid,total) values(${uid},${total});`
 			db.insert(sql,(result)=>{
 				sql = "";
@@ -44,10 +46,31 @@ module.exports = {
 					sql += `insert into orderproduct(gid,orderid,qty) values(${gids[i]},${orderid},${qtyNumber});`;
 				}
 				db.insert(sql,(inserResults)=>{
-					res.send(inserResults);
+					var orderid = inserResults.data.results.insertId;
+					sql = '';
+					sql = `select * from orderproduct where id = ${orderid}`;
+					db.select(sql,function(res2){
+						res.send(res2);
+					})
+					
 				})
 			
 			})
+		}),
+		/*----------------修改状态------------------*/
+		app.post('/updataOrder',function(req,res){
+			let uid = req.body.uid;
+			let orderId = req.body.orderid;
+			let status = req.body.status;
+			
+			console.log(uid,orderId,status)
+			// let	sql = `insert into orders(userid,total) values(${uid},${total});`
+
+			let sql = `update orders set status = ${status} where id = ${orderId}`;
+			db.update(sql, (result) => {
+				// sql = `select * from orders where id = `
+                res.send(result);
+            })
 		}),
 
         /*-------------未付款订单------------------------*/
@@ -66,8 +89,8 @@ module.exports = {
 					inner join orderproduct od on o.id = od.orderid
 					inner join goods g on g.id = od.gid
 				where 
-					userid = 2 and status= 0`;
-				
+					userid = ${uid} and status= 0`;
+				console.log()
 				// console.log(sql);
 			db.select(sql,(date)=>{
 				// console.log(date);
@@ -104,7 +127,7 @@ module.exports = {
 					inner join orderproduct od on o.id = od.orderid
 					inner join goods g on g.id = od.gid
 				where 
-					userid = 2`;
+					userid = ${uid}`;
 				db.select(sql,(dates)=>{
 				
 					res.send(dates);

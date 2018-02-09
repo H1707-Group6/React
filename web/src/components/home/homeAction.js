@@ -6,9 +6,13 @@ export function getHotgoods(key){
 	
     return{
         url:'getHotgoods',
-        types:[homeContants.HOME_REQUESTING,homeContants.HOME_REQUESTED,homeContants.HOME_REQUESTERROR],
+        types:[homeContants.HOME_REQUESTING,
+        homeContants.HOME_REQUESTED,
+        homeContants.HOME_REQUESTERROR],
         data:{
       		keyword:key
         }
     }
 }
+
+

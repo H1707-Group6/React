@@ -13,32 +13,64 @@ import Header from '../header/headerComponent'
 var username;
 var gid;
 var qty;
+
 /*----------------------*/
 class OrderComponent extends Component{
     state = {
-        text:'我的订单'
-        // total:this.props.router.location.state.total,
+        text:'我的订单',
+        total:this.props.router.location.state.total,
+        orderId:''
     }
     componentWillMount(){
-        // gid = this.props.router.location.state.gid;
+        gid = this.props.router.location.state.gid;
+        qty = this.props.router.location.state.allqty;
         // total = this.props.router.location.state.total ;
         username = window.sessionStorage.getItem('username');
-        console.log(this.state.total)
+        console.log(this.state.total,qty,gid)
     }
     nopay(){
-        var gid = [1,2,3];
-        var qty = [3,4,5];
-        var total = 666;
+        // var gid = [1,2,3];
+        // var qty = [3,4,5];
+        // var total = 666;
         var uid = window.sessionStorage.getItem('userId');
-        var goods = [{gid:1,qty:2,total:2000},{gid:3,qty:9,total:2000}];
-        this.props.myorder(uid,gid.join(','),qty.join(','),total);
+
+        // var goods = [{gid:gid,qty:2,total:2000},{gid:3,qty:9,total:2000}];
+        this.props.myorder(uid,gid.join(','),qty.join(','),this.state.total).then((res)=>{
+            this.props.router.push({pathname:'nopay'})
+        });
     }
     allorder(){
         var gid = 3;
         var oid = 58;
         this.props.delorder(gid,oid);
     }
+    gotopay(){
+        var uid = window.sessionStorage.getItem('userId');
+        this.props.myorder(uid,gid.join(','),qty.join(','),this.state.total).then((res)=>{
+            console.log(res.results[0].orderid)
+            this.setState({orderId:res.results[0].orderid});
+            this.props.router.push({
+                pathname:'pay',
+                state:{
+                    total:this.state.total,
+                    gid:gid,
+                    allqty:qty,
+                    orderId:this.state.orderId
+                }
+            })
+        });
+       
+        // this.props.router.push({
+        //     pathname:'pay',
+        //     state:{
+        //         total:this.state.total,
+        //         gid:gid,
+        //         allqty:qty
+        //     }
+        // })
+    }
     render(){
+        var slef = this;
         return (
             <div className="order">
             	 <Header  text = {this.state.text}></Header>
@@ -50,7 +82,7 @@ class OrderComponent extends Component{
                         <p>广东省广州市裕隆公寓</p>
 					</div>
                     <div className="step2">
-                        <p>下单人:<Icon type="user-add" />孟星宇<span><Icon type="mobile" />手机号：{username}</span><Icon type="right" /></p>
+                        <p>下单人:<Icon type="user-add" />李小花<span><Icon type="mobile" />手机号：{username}</span><Icon type="right" /></p>
                     </div>
                     <div className="step3">
                         <ul>
@@ -72,15 +104,15 @@ class OrderComponent extends Component{
                             </li>
                             <li>
                                 <span>商品金额</span>
-                                <span>{this.state.total}</span>
+                                <span>￥{this.state.total}</span>
                             </li>
                         </ul>
                     </div>
                 </main>
                 <footer>
                     <div className="footer">
-                        <p>实付款：<span className="total">{this.state.total}</span></p>
-                        <p><span className="btn_total" onClick={this.nopay.bind(this)}>去结算</span></p>
+                        <p>实付款：<span className="total">￥{this.state.total}</span></p>
+                        <p><span className="btn_total" onClick={()=>slef.gotopay()}>去结算</span></p>
                     </div>
                 </footer>
             </div>

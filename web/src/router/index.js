@@ -4,6 +4,7 @@ import {Route} from 'react-router'
 //龙飞宇
 import HomeComponent from '../components/home/homeComponent'
 import ClassifyComponent from '../components/classify/classifyComponent'
+import HomeSearch from '../components/homeSearch/homeSearchComponent'
 
 //冯志伟
 import GoodslistComponent from '../components/goodslist/goodslistComponent'
@@ -19,10 +20,12 @@ import NopayComponent from '../components/nopay/nopayComponent'
 import AllorderComponent from '../components/allorder/allorderComponent'
 import EvaluateComponent from '../components/evaluate/evaluateComponent'
 import IntegralComponent from '../components/integral/integralComponent'
+import PayComponent from '../components/pay/payComponent'
 const routes = (
     <Route>
         <Route path = '/' component={HomeComponent}/>
         <Route path = '/classify' component={ClassifyComponent}/>
+        
         <Route path = 'goodslist' component={GoodslistComponent}/>
         <Route path = 'login' component={LoginComponent}/>
         <Route path = 'register' component={RegisterComponent}/>
@@ -32,9 +35,11 @@ const routes = (
         <Route path = 'allorder' component={AllorderComponent}/>
         <Route path = 'evaluate' component={EvaluateComponent}/>
         <Route path = 'integral' component={IntegralComponent}/>
+        <Route path = 'pay' component={PayComponent}/>
         <Route path = '/details' component={DetailsComponent}/>
         <Route path = 'cart(/:id)' component={CartComponent}/>
     </Route>
 
 )
 export default routes;
+// <Route path = '/HomeSearch' component={HomeSearchComponent}/>

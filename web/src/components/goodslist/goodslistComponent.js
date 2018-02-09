@@ -16,7 +16,7 @@ class GoodslistComponent extends Component{
     componentWillMount(){
         // var keys = this.props.router.location.state.name
         // console.log(this.props.router.location.state.name)
-        console.log(keys)
+        
         
         key = '永生花';
         this.props.getGoods(key);

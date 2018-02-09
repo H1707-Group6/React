@@ -7,10 +7,6 @@ export default function goodslistReducer(state={},action){
         case (ajaxConstants.AJAX_REQUESTING || classifyContants.CLASSIFY_REQUESTING):
             newState.status = 0;
             break;
-        // case ajaxConstants.AJAX_REQUESTED:
-        //     newState.status = 1;
-        //     newState.result = action.result.results;
-        //     break;
         case (ajaxConstants.AJAX_REQUESTERROR || classifyContants.CLASSIFY_REQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;

@@ -54,7 +54,7 @@ module.exports = {
                 if(data.data.results.length == 0 ){
                     // 写入数据
                     var sql = `
-                        INSERT INTO user (id,username,password,date) VALUES 
+                        INSERT INTO users (id,username,password,date) VALUES 
                         (id=id+1,'${username}', '${password}',now());
                     `;
                         // console.log(sql);

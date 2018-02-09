@@ -1,22 +1,24 @@
-// import * as ajaxConstants from '../../contants/ajaxContants'
+import * as ajaxConstants from '../../contants/ajaxContants'
 
-import * as allorderContants from './allorderContants'
+import * as payContants from './payContants'
 
-export default function orderReducer(state={},action){
+export default function goodslistReducer(state={},action){
     let newState = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case allorderContants.GETORDER_REQUESTING :
+        case (payContants.PAY_REQUESTING ):
             newState.status = 0;
             break;
-        case allorderContants.GETORDER_REQUESTED:
-            newState.status = 1;
+        case payContants.PAY_REQUESTED:
             console.log(action)
+            newState.status = 1;
             newState.result = action.result.results;
             break;
-        case allorderContants.GETORDER_REQUESTERROR:
+        case (payContants.PAY_REQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;
             break;
+
+       
     }
     return newState;
 }
