@@ -14,11 +14,16 @@ var res = [];
 class HomeComponent extends Component{
     componentWillMount(){
         var keyword = ['鲜花','永生花','礼品'];
-         this.props.getHotgoods(keyword[0]).then(()=>{
-            this.props.getHotgoods(keyword[1]).then(()=>{
-                this.props.getHotgoods(keyword[2])
-            })
-        })
+         for(let i=0;i<keyword.length;i++){
+            
+            this.props.getHotgoods(keyword[i]);
+        }
+
+        //  this.props.getHotgoods(keyword[0]).then(()=>{
+        //     this.props.getHotgoods(keyword[1]).then(()=>{
+        //         this.props.getHotgoods(keyword[2])
+        //     })
+        // })
     }
     state = {
         data: ['./src/assets/imgs/banner/banner1.jpg', 
