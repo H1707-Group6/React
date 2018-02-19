@@ -21,9 +21,9 @@ var res = [];
 class ClassifyComponent extends Component{
 	componentWillMount(){
 		var type = ['鲜花','永生花','蛋糕','巧克力','礼品'];
-		for(let i=0;i<type.length;i++){
-		 	this.props.getClassify(type[i]);
-		}
+		
+		this.props.getClassify(type);
+		
 	}
 	state={
 		imgs:['./src/assets/imgs/other/classify01.jpg',
@@ -78,7 +78,7 @@ class ClassifyComponent extends Component{
 											<span>全部</span>
 										</li>
 										{
-				                            this.props.ajaxResult()[0].map((item,index)=>{
+				                            this.props.ajaxResult[0].map((item,index)=>{
 
 				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[0].title)}>
 				                                            <img src={item.mainimg} />
@@ -99,7 +99,7 @@ class ClassifyComponent extends Component{
 											<span>全部</span>
 										</li>
 										{
-				                            this.props.ajaxResult()[1].map((item,index)=>{
+				                            this.props.ajaxResult[1].map((item,index)=>{
 
 				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[1].title)}>
 				                                            <img src={item.mainimg} />
@@ -121,7 +121,7 @@ class ClassifyComponent extends Component{
 											<span>全部</span>
 										</li>
 										{
-				                            this.props.ajaxResult()[2].map((item,index)=>{
+				                            this.props.ajaxResult[2].map((item,index)=>{
 
 				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[2].title)}>
 				                                            <img src={item.mainimg} />
@@ -143,7 +143,7 @@ class ClassifyComponent extends Component{
 											<span>全部</span>
 										</li>
 										{
-				                            this.props.ajaxResult()[3].map((item,index)=>{
+				                            this.props.ajaxResult[3].map((item,index)=>{
 
 				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[3].title)}>
 				                                            <img src={item.mainimg} />
@@ -165,7 +165,7 @@ class ClassifyComponent extends Component{
 											<span>全部</span>
 										</li>
 										{
-				                            this.props.ajaxResult()[4].map((item,index)=>{
+				                            this.props.ajaxResult[4].map((item,index)=>{
 				                                return <li key={item.id} onClick={this.goGoodslists.bind(this,tabs[4].title)}>
 				                                            <img src={item.mainimg} />
 															<span>{this.state.lipin[index]}</span>
@@ -190,27 +190,9 @@ class ClassifyComponent extends Component{
 }
 
 let mapStateToProps = (state)=>{
- 	if(state.classify.status == 1){
-        res.push(state.classify.result);
-    }
-
     return {
         ajaxStatus:state.classify.status,
-        ajaxResult:function(){		
-            if(res.length == 5){
-            	function compare(property){
-				    return function(a,b){
-				        var value1 = a[property];
-				        var value2 = b[property];
-				        return value1 - value2;
-				    }
-				}
-            	res.sort(compare('bigtype'));
-                return res;
-            }else{
-                return [[],[],[],[],[]];
-            }
-        }
+        ajaxResult:state.classify.result || [[],[],[],[],[]]
     }
 }
 

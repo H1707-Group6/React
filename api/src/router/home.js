@@ -4,25 +4,34 @@ module.exports = {
 	register:function(app){
 		app.get('/getHotgoods',function(req,res){
 			var keyword = req.query.keyword;
-		
-			var sql = `
-					select 
-						g.*
-					from 
-						goods g
-						inner join bigtype b on g.bigtype=b.id
-					where b.type='${keyword}' 
-			`;
+			// keyword = JSON.parse(keyword);
+			console.log(keyword);
 
-			if(keyword == '鲜花'){
-				sql += ' limit 1,12';
-			}else{
-				sql += ' limit 1,4';
-			}
+			let goods = [];
+			var sql='';
+			keyword.forEach(function(item){
 
-			db.select(sql,function(data){
-				res.send(data);
-			})
+				sql += `
+						select 
+							g.*
+						from 
+							goods g
+							inner join bigtype b on g.bigtype=b.id
+						where b.type='${item}'
+					`;
+					if(item == '鲜花'){
+						sql += ' limit 1,12;';
+					}else{
+						sql += ' limit 1,4;';
+					}
+
+
+			});
+				console.log(sql);
+				db.select(sql,function(data){
+						res.send(data);		
+				})		
+
 		})
 
 		app.get('/getSearch',function(req,res){

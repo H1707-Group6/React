@@ -4,27 +4,33 @@ module.exports = {
 	register:function(app){
 		app.get('/classify',function(req,res){
 			var keyword = req.query.keyword;
-			
-			var sql = `
+
+			var sql='';
+			keyword.forEach(function(item){
+
+				sql += `
 					select 
 						g.*
 					from 
 						goods g
 						inner join bigtype b on g.bigtype=b.id
-					where b.type='${keyword}' 
-			`;
+					where b.type='${item}' 
+				`;
 
-			if(keyword == '鲜花'){
-				sql += ' limit 1,8';
-			}else if(keyword == '永生花'){
-				sql += ' limit 1,5';
-			}else if(keyword == '蛋糕'){
-				sql += ' limit 1,5';
-			}else if(keyword == '巧克力'){
-				sql += ' limit 1,4';
-			}else if(keyword == '礼品'){
-				sql += ' limit 1,6';
-			}
+				if(item == '鲜花'){
+					sql += ' limit 1,8;';
+				}else if(item == '永生花'){
+					sql += ' limit 1,5;';
+				}else if(item == '蛋糕'){
+					sql += ' limit 1,5;';
+				}else if(item == '巧克力'){
+					sql += ' limit 1,4;';
+				}else if(item == '礼品'){
+					sql += ' limit 1,6;';
+				}
+
+			});
+			console.log(sql);
 
 			db.select(sql,function(data){
 				res.send(data);

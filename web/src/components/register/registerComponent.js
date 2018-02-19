@@ -87,10 +87,7 @@ class RegisterComponent extends Component{
                                 <input type="number" ref='username' placeholder="请输入手机号" onBlur={(event)=>this.telCheck(event)}/>
                                 <p>{this.state.phone}</p>
                             </div> 
-                            <div className="l_mc_code">
-                                <input type="number" placeholder="请输入验证码"/>
-                                <span>dsfs</span>
-                            </div> 
+                      
                             <div className="l_mc_pwd">
                                 <input type="number" ref='password' placeholder="请设置密码" onBlur={(event)=>this.passwordCheck(event)}/>
                                 <p>{this.state.pwd}</p>

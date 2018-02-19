@@ -15,7 +15,7 @@ export function delorder(uid,gid,orderid){
 	return{
 		url:'delorder',
 		method:'get',
-		types:[allorderContants.DELORDER_REQUESTED,allorderContants.DELORDER_REQUESTING,allorderContants.DELORDER_REQUESTERROR],
+		types:[allorderContants.GETORDER_REQUESTING,allorderContants.GETORDER_REQUESTED,allorderContants.GETORDER_REQUESTERROR],
 		data:{
 			uid:uid,
 			gid:gid,

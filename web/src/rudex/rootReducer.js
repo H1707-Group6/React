@@ -6,6 +6,7 @@ import nopay from '../components/nopay/nopayReducer'
 import order from '../components/order/orderReducer'
 import mine from '../components/mine/mineReducer'
 import allorder from '../components/allorder/allorderReducer'
+import pay from '../components/pay/payReducer'
 //冯志伟
 import goodslist from '../components/goodslist/goodslistReducer'
 import details from '../components/details/detailsReducer'
@@ -28,7 +29,8 @@ export default combineReducers({
     nopay,
     order,
     mine,
-    allorder
+    allorder,
+    pay
 
 
 })

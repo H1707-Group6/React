@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import Footer from '../footer/footerComponent'
 import Tabs from './tabsComponent'
 import {Link} from 'react-router'
+import axios from 'axios'
 
 import './home.scss'
 import {Icon} from 'antd';
@@ -14,14 +15,11 @@ var res = [];
 class HomeComponent extends Component{
     componentWillMount(){
         var keyword = ['鲜花','永生花','礼品'];
-        for(let i=0;i<keyword.length;i++){
-            
-            this.props.getHotgoods(keyword[i]);
-        }
-
+        
+        this.props.getHotgoods(keyword);
     }
-
     state = {
+        
         data: ['./src/assets/imgs/banner/banner1.jpg', 
                 './src/assets/imgs/banner/banner4.jpg',
                 './src/assets/imgs/banner/banner9.jpg'],
@@ -59,6 +57,7 @@ class HomeComponent extends Component{
     }
 
     render(){
+        console.log(this.props.ajaxResult)
         return(
             <div className = "home">
                 <div className="home_h">
@@ -135,7 +134,7 @@ class HomeComponent extends Component{
                     <div className="main05_fea_list">
                         <ul>
                         {
-                            this.props.ajaxResult()[0].map((item,index)=>{
+                            this.props.ajaxResult[0].map((item,index)=>{
                                 var titles = item.title.split('----');
 
                                 return <li key={item.id} onClick={this.godetails.bind(this,item.id)}>
@@ -168,7 +167,7 @@ class HomeComponent extends Component{
                     <div className="main05_fea_list">
                         <ul>
                         {
-                            this.props.ajaxResult()[1].map((item,index)=>{
+                            this.props.ajaxResult[1].map((item,index)=>{
                                 var titles = item.title.split('----');
 
                                 return <li key={item.id} onClick={this.godetails.bind(this,item.id)}>
@@ -200,7 +199,7 @@ class HomeComponent extends Component{
                     <div className="main05_fea_list">
                         <ul>
                         {
-                            this.props.ajaxResult()[2].map((item,index)=>{
+                            this.props.ajaxResult[2].map((item,index)=>{
                                 var titles = item.title.split('----');
 
                                 return <li key={item.id} onClick={this.godetails.bind(this,item.id)}>
@@ -254,20 +253,11 @@ class HomeComponent extends Component{
 
 
 let mapStateToProps = (state)=>{
-    if(state.home.status == 1){
-        res.push(state.home.result);
-    }
 
     return {
         ajaxStatus:state.home.status,
-        ajaxResult:function(){
-            if(res.length == 3){
-                // this.render();
-                return res;
-            }else{
-                return [[],[],[]];
-            }
-        }
+        ajaxResult:state.home.result||[[],[],[]]
+
     }
 }
 

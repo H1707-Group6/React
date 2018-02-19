@@ -28,6 +28,7 @@ module.exports = {
         })
         app.get('/getCart',function(req, res){
             var userId = req.query.userId;
+            console.log(userId)
             let sql = `select * from cart where userid = ${userId}`;
             db.select(sql,(result)=>{
                 if(result.data.results.length>0){
@@ -48,18 +49,7 @@ module.exports = {
                     })
                 }
             })
-        })
-
-        // app.post('/delCart',function(req,res){
-        //     var gid = req.body.gid;
-        //     var uid = req.body.uid;
-      
-        //     var sql =`select gid from cart where userid = 2`
-        //     db.select(sql,(result)=>{
-        //         var allgid = result.data.results[0].gid;
-        //         res.send(result)
-        //     })
-        // })
+        })   
            
     }
 }
@@ -74,3 +64,13 @@ module.exports = {
   //       inner join smalltype s on g.smalltype = s.id
   //   where 
   //       id = ${iten};
+   // app.post('/delCart',function(req,res){
+        //     var gid = req.body.gid;
+        //     var uid = req.body.uid;
+      
+        //     var sql =`select gid from cart where userid = 2`
+        //     db.select(sql,(result)=>{
+        //         var allgid = result.data.results[0].gid;
+        //         res.send(result)
+        //     })
+        // })

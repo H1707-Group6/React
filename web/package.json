@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress --colors",
-    "start": "webpack-dev-server --devtool eval --progress --port 3002 --host 10.3.136.7 --colors --open --content-base ./"
+    "start": "webpack-dev-server --devtool eval --progress --port 3002 --host 192.168.31.145 --colors --open --content-base ./"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

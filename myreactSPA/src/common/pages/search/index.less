@@ -1,0 +1,26 @@
+.searchpage{
+  .searchpage_t{
+    padding-left:20%;padding-bottom:20px;border-bottom:1px solid #ccc;box-shadow:0 3px 3px 3px #f1f1f1;
+    ul{
+      overflow:hidden;
+      li{float:left;padding:5px 10px;
+        &.active{border:1px solid #108ee9;border-bottom-width:2px;}
+      }
+    }
+    input{width:60%;border:1px solid #108ee9;height:34px;border-top-width:2px;padding-left:10px;font-size:14px;}
+    button{width:15%;background:#108ee9;color:white;height:34px;border:0 none;border-top:1px solid #108ee9;font-size:14px;}
+  }
+  .searchpage_b{
+    margin-top:15px;
+    td{
+      input{width:100%;height:100%;border:0 none;}
+      button{width:60px;height:100%;}
+    }
+    .ant-table-row td input{
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+  }
+}
+

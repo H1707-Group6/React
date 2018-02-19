@@ -20,6 +20,7 @@ import NopayComponent from '../components/nopay/nopayComponent'
 import AllorderComponent from '../components/allorder/allorderComponent'
 import EvaluateComponent from '../components/evaluate/evaluateComponent'
 import IntegralComponent from '../components/integral/integralComponent'
+import PayComponent from '../components/pay/payComponent'
 const routes = (
     <Route>
         <Route path = '/' component={HomeComponent}/>
@@ -34,6 +35,7 @@ const routes = (
         <Route path = 'allorder' component={AllorderComponent}/>
         <Route path = 'evaluate' component={EvaluateComponent}/>
         <Route path = 'integral' component={IntegralComponent}/>
+        <Route path = 'pay' component={PayComponent}/>
         <Route path = '/details' component={DetailsComponent}/>
         <Route path = 'cart(/:id)' component={CartComponent}/>
     </Route>

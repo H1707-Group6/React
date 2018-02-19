@@ -1,18 +1,18 @@
 import * as cartContants from './cartContants'
-export function getCart(){
+export function getCart(uid){
     return {
         types:[cartContants.CART_REQUESTING,cartContants.CART_REQUESTED,cartContants.CART_REQUESTERROR],
         url: 'getCart',
-        data: {userId: 2}
+        data: {userId: uid}
     }
 }
-export function genOrder(cartids, goodsids){
-    return {
-        url: 'genorder',
-        method: 'post',
-        data: {uid: 1, cartids, goodsids}
-    }
-}
+// export function genOrder(cartids, goodsids){
+//     return {
+//         url: 'genorder',
+//         method: 'post',
+//         data: {uid: 1, cartids, goodsids}
+//     }
+// }
 export function del(gid,uid){
     return {
         types:[cartContants.DEL_REQUESTING,cartContants.DEL_REQUESTED,cartContants.DEL_REQUESTERROR],

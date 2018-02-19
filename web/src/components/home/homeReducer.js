@@ -14,6 +14,7 @@ export default function homeReducer(state={},action){
             break;
             
         case homeContants.HOME_REQUESTED:
+            console.log(action);
             newState.status = 1;
             newState.result = action.result.results;
             break;

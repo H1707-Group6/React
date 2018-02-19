@@ -67,6 +67,12 @@ class MineComponent extends Component{
                 pathname:'integral'
             })
         }
+        //跳转到支付页面
+        // gotopay(){
+        //     this.props.router.push({
+        //         pathname:'pay'
+        //     })
+        // }
       render(){
         return (
             <div className="mine">

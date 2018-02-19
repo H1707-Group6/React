@@ -1,5 +1,5 @@
 export function myorder(uid,gid,qty,total){
-	console.log(gid);
+	console.log(uid,gid,qty,total);
 	return{
 		url:'myorder',
 		method:'post',

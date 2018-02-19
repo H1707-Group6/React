@@ -15,9 +15,11 @@ let cartlist =[];
  // this.props.getCartList();
 class CartComponent extends Component {
     componentWillMount(){
-        uid  = window.sessionStorage.getItem('userid');
+        uid  = window.sessionStorage.getItem('userId');
+       
         username = window.sessionStorage.getItem('username');
-        this.props.getCart().then((res)=>{
+        
+        this.props.getCart(uid).then((res)=>{
             cartlist = res.results;
        });
     }
@@ -27,14 +29,15 @@ class CartComponent extends Component {
     }
 
     goPay(){ 
-        this.props.router.push({
-            pathname:'order',
-            state:{
-                total:this.state.total,
-                gid:goodsids,
-                allqty:allqty
-            }
-        })
+    
+            this.props.router.push({
+                pathname:'order',
+                state:{
+                    total:this.state.total,
+                    gid:goodsids,
+                    allqty:allqty
+                }
+            })
 
     }
     updatas(event,idx){
@@ -128,7 +131,7 @@ class CartComponent extends Component {
                         <span>合计：<i>￥{this.state.total}</i></span>
                         </li>
                         <li onClick ={(event)=>this.goPay(event)}>
-                            <span>去结算(<i></i>)</span>
+                            <span>去结算</span>
                         </li>
                 </ul>
                 </div>
