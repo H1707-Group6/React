@@ -13,6 +13,7 @@ export function getCart(uid){
 //         data: {uid: 1, cartids, goodsids}
 //     }
 // }
+//   types:[cartContants.DEL_REQUESTING,cartContants.DEL_REQUESTED,cartContants.DEL_REQUESTERROR],
 export function del(gid,uid){
     return {
         types:[cartContants.DEL_REQUESTING,cartContants.DEL_REQUESTED,cartContants.DEL_REQUESTERROR],

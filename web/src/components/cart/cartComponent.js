@@ -12,16 +12,25 @@ let onePrice =[];
 let uid;
 let username;
 let cartlist =[];
+let del_checked;
+let checked_gid;
+let del_price;
  // this.props.getCartList();
 class CartComponent extends Component {
     componentWillMount(){
         uid  = window.sessionStorage.getItem('userId');
+        // username = window.sessionStorage.getItem('username');
+        if(uid!=null){
+            this.props.getCart(uid).then((res)=>{
+                cartlist = res.results;
+            });
+        }else{
+            this.props.router.push({
+                pathname:'login'})
+        }
        
-        username = window.sessionStorage.getItem('username');
         
-        this.props.getCart(uid).then((res)=>{
-            cartlist = res.results;
-       });
+        
     }
     state = {
         text:'购物车',
@@ -73,7 +82,8 @@ class CartComponent extends Component {
         }
 
         this.setState({total:oneprice});
-
+        del_checked = event.target.checked;
+        checked_gid = gid;
         if(event.target.checked){
             if(goodsids.indexOf(gid) < 0){
                 goodsids.push(gid)
@@ -81,6 +91,7 @@ class CartComponent extends Component {
             if(allqty.indexOf(cartlist[idx][0].qty) < 0){
                 allqty.push(cartlist[idx][0].qty)
             } 
+
            
                          
         }else{
@@ -92,20 +103,28 @@ class CartComponent extends Component {
             } 
                            
         }
-        console.log(goodsids,allqty)
+        // console.log(goodsids,allqty)
     }
     del(event,gid){
+        
+        if(del_checked ==true && gid == checked_gid){
 
-        // console.log(66,gid,uid)
-        this.props.del(gid,uid)
+            console.log(event.target.parentNode.parentNode.parentNode)
+            var del_node = event.target.parentNode.parentNode.parentNode;
+            del_node.parentNode.removeChild(del_node);
+            this.props.del(gid,uid)
+                
+        }
     }
     render(){
+        console.log(this.props.cartList)
         return (   
             <div className='cart_f'>
                 <div className = 'cart_h'><Header text = {this.state.text}></Header></div>
                 <div className = 'cart_fm'>
                     {
                         this.props.cartList.map((item,index) => {
+                            console.log(item)
                             if(typeof(item[0].title) =='string'){
                                 item[0].title = item[0].title.split('----');
                             }
@@ -141,6 +160,7 @@ class CartComponent extends Component {
 }
 
 let mapStateToProps = (state) => {
+    console.log(state.cart)
     var carts = [];    
     if(state.cart.status =='1'){
         carts = state.cart.result;
@@ -164,7 +184,7 @@ let mapStateToProps = (state) => {
     }
 
     return {
-        cartList: state.cart.result || [],
+        cartList: state.cart.result || []
         
     }
 }
