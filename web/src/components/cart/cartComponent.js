@@ -64,6 +64,7 @@ class CartComponent extends Component {
         for(var i =0; i<checks.length;i++){
             if(checks[i].checked){
                 allqty.splice(allqty.indexOf(allqty[i]),1,cartlist[i].num)
+                del_price = Number(cartlist[i].num*cartlist[i].saleprice);
                 oneprice  += Number(cartlist[i].num*cartlist[i].saleprice) ;
         
             }
@@ -76,7 +77,7 @@ class CartComponent extends Component {
         var oneprice =0;
         for(var i =0; i<checks.length;i++){
             if(checks[i].checked){
-                
+                del_price = Number(cartlist[i].num*cartlist[i].saleprice);
                 oneprice  += Number(cartlist[i].num*cartlist[i].saleprice);
             }
         }
@@ -88,8 +89,8 @@ class CartComponent extends Component {
             if(goodsids.indexOf(gid) < 0){
                 goodsids.push(gid)
             }
-            if(allqty.indexOf(cartlist[idx].qty) < 0){
-                allqty.push(cartlist[idx].qty)
+            if(allqty.indexOf(cartlist[idx].num) < 0){
+                allqty.push(cartlist[idx].num)
             } 
 
            
@@ -112,7 +113,9 @@ class CartComponent extends Component {
             // console.log(event.target.parentNode.parentNode.parentNode)
             // var del_node = event.target.parentNode.parentNode.parentNode;
             // del_node.parentNode.removeChild(del_node);
-            console.log(this.state.total-)
+            var Priceall = this.state.total-del_price;
+
+            this.setState({total:Priceall});
             this.props.del(gid,uid)
                 
         }
