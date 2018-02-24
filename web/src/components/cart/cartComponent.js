@@ -51,11 +51,11 @@ class CartComponent extends Component {
     }
     updatas(event,idx){
        if(event.target.innerText =='+'){
-        cartlist[idx][0].qty = ++ event.target.parentNode.children[1].innerText ;
+        cartlist[idx].num = ++ event.target.parentNode.children[1].innerText ;
         }else if(event.target.innerText =='-'){
-            cartlist[idx][0].qty = --event.target.parentNode.children[1].innerText ;
-            if( cartlist[idx][0].qty<=1){
-                 cartlist[idx][0].qty = event.target.parentNode.children[1].innerText = 1;
+            cartlist[idx].num = --event.target.parentNode.children[1].innerText ;
+            if( cartlist[idx].num<=1){
+                 cartlist[idx].num = event.target.parentNode.children[1].innerText = 1;
             }
            
         }
@@ -63,8 +63,8 @@ class CartComponent extends Component {
         var oneprice =0;
         for(var i =0; i<checks.length;i++){
             if(checks[i].checked){
-                allqty.splice(allqty.indexOf(allqty[i]),1,cartlist[i][0].qty)
-                oneprice  += Number(cartlist[i][0].qty*cartlist[i][0].saleprice) ;
+                allqty.splice(allqty.indexOf(allqty[i]),1,cartlist[i].num)
+                oneprice  += Number(cartlist[i].num*cartlist[i].saleprice) ;
         
             }
         }
@@ -77,7 +77,7 @@ class CartComponent extends Component {
         for(var i =0; i<checks.length;i++){
             if(checks[i].checked){
                 
-                oneprice  += Number(cartlist[i][0].qty*cartlist[i][0].saleprice);
+                oneprice  += Number(cartlist[i].num*cartlist[i].saleprice);
             }
         }
 
@@ -88,8 +88,8 @@ class CartComponent extends Component {
             if(goodsids.indexOf(gid) < 0){
                 goodsids.push(gid)
             }
-            if(allqty.indexOf(cartlist[idx][0].qty) < 0){
-                allqty.push(cartlist[idx][0].qty)
+            if(allqty.indexOf(cartlist[idx].qty) < 0){
+                allqty.push(cartlist[idx].qty)
             } 
 
            
@@ -98,8 +98,8 @@ class CartComponent extends Component {
             if(goodsids.indexOf(gid) > - 1){
                 goodsids.splice(goodsids.indexOf(gid), 1)
             } 
-            if(allqty.indexOf(cartlist[idx][0].qty) >-1){
-                allqty.splice(allqty.indexOf(cartlist[idx][0].qty),1)
+            if(allqty.indexOf(cartlist[idx].num) >-1){
+                allqty.splice(allqty.indexOf(cartlist[idx].num),1)
             } 
                            
         }
@@ -109,9 +109,10 @@ class CartComponent extends Component {
         
         if(del_checked ==true && gid == checked_gid){
 
-            console.log(event.target.parentNode.parentNode.parentNode)
-            var del_node = event.target.parentNode.parentNode.parentNode;
-            del_node.parentNode.removeChild(del_node);
+            // console.log(event.target.parentNode.parentNode.parentNode)
+            // var del_node = event.target.parentNode.parentNode.parentNode;
+            // del_node.parentNode.removeChild(del_node);
+            console.log(this.state.total-)
             this.props.del(gid,uid)
                 
         }
@@ -125,18 +126,18 @@ class CartComponent extends Component {
                     {
                         this.props.cartList.map((item,index) => {
                             console.log(item)
-                            if(typeof(item[0].title) =='string'){
-                                item[0].title = item[0].title.split('----');
+                            if(typeof(item.title) =='string'){
+                                item.title = item.title.split('----');
                             }
                             return (
-                                <ul key={item[0].id} className = 'cart_table'>
+                                <ul key={item.id} className = 'cart_table'>
                                     <li>
-                                        <div className = 'cart_table1'><input type="checkbox"   className = 'checks' onClick={(event)=>this.selectItem(event,item[0].id,index)}/></div>
-                                        <div className = 'cart_table2'><img src = {item[0].mainimg}/></div>
+                                        <div className = 'cart_table1'><input type="checkbox"   className = 'checks' onClick={(event)=>this.selectItem(event,item.id,index)}/></div>
+                                        <div className = 'cart_table2'><img src = {item.mainimg}/></div>
                                         <div className = 'cart_table3'>
-                                            <p>{item[0].title[0]}</p>
-                                            <p>{item[0].title[1]}</p>
-                                            <p><span>{item[0].saleprice}</span><i className ='goods_qty'  onClick = {(event)=>this.updatas(event,index)}><span>-</span><span className = 'goodsqty'>{item[0].qty}</span><span>+</span></i><span onClick={(event)=>this.del(event,item[0].id)}>删除</span></p>
+                                            <p>{item.title[0]}</p>
+                                            <p>{item.title[1]}</p>
+                                            <p><span>{item.saleprice}</span><i className ='goods_qty'  onClick = {(event)=>this.updatas(event,index)}><span>-</span><span className = 'goodsqty'>{item.num}</span><span>+</span></i><span onClick={(event)=>this.del(event,item.id)}>删除</span></p>
                                         </div>
                                     </li>
                                 </ul>
@@ -160,28 +161,28 @@ class CartComponent extends Component {
 }
 
 let mapStateToProps = (state) => {
-    console.log(state.cart)
-    var carts = [];    
-    if(state.cart.status =='1'){
-        carts = state.cart.result;
-        carts.forEach((iten)=>{
-            iten[0].qty = 1;
-        })
-        goodsQty(carts);
-        function goodsQty(arr){
-            for(var i = 0;i < arr.length;i++){
-                for(var j = i+1;j < arr.length;j++){
-                    if(arr[i][0].id == arr[j][0].id){
-                        arr[i][0].qty++;
-                        arr.splice(j,1);
-                        arr[i][0].onePrice =arr[i][0].saleprice* arr[i][0].qty;
-                        goodsQty(arr);
-                    }
-                }
-            }
-            return arr;
-        }  
-    }
+    // console.log(state.cart)
+    // var carts;    
+    // if(state.cart.status =='1'){
+    //     carts = state.cart.result;
+    //     carts.forEach((iten)=>{
+    //         iten[0].qty = 1;
+    //     })
+    //     goodsQty(carts);
+    //     function goodsQty(arr){
+    //         for(var i = 0;i < arr.length;i++){
+    //             for(var j = i+1;j < arr.length;j++){
+    //                 if(arr[i][0].id == arr[j][0].id){
+    //                     arr[i][0].qty++;
+    //                     arr.splice(j,1);
+    //                     arr[i][0].onePrice =arr[i][0].saleprice* arr[i][0].qty;
+    //                     goodsQty(arr);
+    //                 }
+    //             }
+    //         }
+    //         return arr;
+    //     }  
+    // }
 
     return {
         cartList: state.cart.result || []

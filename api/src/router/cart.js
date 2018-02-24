@@ -6,7 +6,7 @@ module.exports = {
         app.post('/addCart', function(req, res){
             var userId = req.body.userId;
             var gId = req.body.goodsId;
-            var goodsId = [];
+            var num = 1;
             let sql = `select * from cart where userid = ${userId}`;
             db.select(sql, (result) => {
                 if(result.data.results.length==0){

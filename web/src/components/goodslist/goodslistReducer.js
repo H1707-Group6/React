@@ -19,6 +19,7 @@ export default function goodslistReducer(state={},action){
             break;
         case goodslistContants.GOODSLIST_REQUESTED:
             newState.status = 1;
+            console.log(action)
             newState.result = action.result.results;
             break;
     }

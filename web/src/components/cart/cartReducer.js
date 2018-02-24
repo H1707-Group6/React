@@ -16,13 +16,12 @@ export default function cartReducer (state = {}, action){
             break;
         case cartContants.CART_REQUESTED:
             newState.status = 1;
-            console.log(action)
+            console.log(action.result.results)
             newState.result = action.result.results;
             break;
         case cartContants.DEL_REQUESTED:
             newState.status = 1;
             newState.result = action.result.results;
-        
             break;
     }
     return newState;
