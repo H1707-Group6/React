@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import './login.scss'
+import '../header/header.scss'
 import {Icon} from 'antd';
 import * as action from './loginAction'
 import Header from '../header/headerComponent'
@@ -72,10 +73,22 @@ class LoginComponent extends Component{
             pathname:'register'
         })
     }
+    godo(){
+        // history.go(-1);
+        this.props.router.push({
+            pathname:'mine'
+        })
+    }
     render(){
         return (
             <div className="login">
-                <Header  text = {this.state.text}></Header>
+            
+                <div className = 'header_f' >
+                    <Icon type="left" onClick={this.godo.bind(this)}/>
+
+                    <i>{this.state.title_h}</i>
+                <Icon type="menu-unfold" />
+            </div>        
                 <main>
                     <div className="content_main">     
                         <div className="login_verify">

@@ -11,7 +11,8 @@ var classify = require('./classify')
 var fbook = require('./fbook')
 var order = require('./order')
 
-var cart = require('./cart')
+// var cart = require('./cart')
+var carts = require('./carts')
 
 
 module.exports = {
@@ -31,7 +32,8 @@ module.exports = {
 
         //冯志伟
         list.register(app);
-        cart.register(app);
+        // cart.register(app);
+        carts.register(app);
         
         //龙飞宇
         home.register(app);

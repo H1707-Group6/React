@@ -13,7 +13,7 @@ export function getDetails(key){
 export function addCart(gid,userId){
     return{
         types:[detailsContants.ADDCART_REQUESTING,detailsContants.ADDCART_REQUESTED,detailsContants.ADDCART_REQUESTERROR],
-        url:'addCart',
+        url:'addcart',
         method:'post',
         data:{goodsId:gid,userId:userId}
     }

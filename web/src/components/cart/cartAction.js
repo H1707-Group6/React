@@ -2,7 +2,7 @@ import * as cartContants from './cartContants'
 export function getCart(uid){
     return {
         types:[cartContants.CART_REQUESTING,cartContants.CART_REQUESTED,cartContants.CART_REQUESTERROR],
-        url: 'getCart',
+        url: 'getcart',
         data: {userId: uid}
     }
 }
@@ -13,10 +13,11 @@ export function getCart(uid){
 //         data: {uid: 1, cartids, goodsids}
 //     }
 // }
+//   types:[cartContants.DEL_REQUESTING,cartContants.DEL_REQUESTED,cartContants.DEL_REQUESTERROR],
 export function del(gid,uid){
     return {
         types:[cartContants.DEL_REQUESTING,cartContants.DEL_REQUESTED,cartContants.DEL_REQUESTERROR],
-        url: 'delCart',
+        url: 'delcart',
         method: 'post',
         data: {gid:gid,uid: uid}
     }
