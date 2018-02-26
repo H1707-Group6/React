@@ -22,22 +22,21 @@ class Maintab extends Component{
             animated={false}
             tabBarPosition="left"
             tabDirection="vertical"
-            
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '600px', backgroundColor: '#fff' }}>
-              Content of first tab
+            <div style={{ alignItems: 'center', justifyContent: 'center', height: '100%', backgroundColor: '#fff' }}>
+              
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '600px', backgroundColor: '#fff' }}>
-              Content of second tab
+            <div style={{  alignItems: 'center', justifyContent: 'center', height: '100%', backgroundColor: '#fff' }}>
+              
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '600px', backgroundColor: '#fff' }}>
-              Content of third tab
+            <div style={{ alignItems: 'center', justifyContent: 'center', height: '100%', backgroundColor: '#fff' }}>
+              
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '600px', backgroundColor: '#fff' }}>
-              Content of third tab
+            <div style={{ alignItems: 'center', justifyContent: 'center', height: '100%', backgroundColor: '#fff' }}>
+              
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '600px', backgroundColor: '#fff' }}>
-              Content of third tab
+            <div style={{ alignItems: 'center', justifyContent: 'center', height: '100%', backgroundColor: '#fff' }}>
+            
             </div>
           </Tabs>
           <WhiteSpace />

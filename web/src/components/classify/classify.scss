@@ -29,12 +29,14 @@
 	    display:flex;
 	    flex-direction: column;
 	    background-color: #f0f0f0;
+	    
 	    .classify_ms{
 	    	height: 100% !important;
-	    	width: 100% !important;
-
+	    	// width: 10.0rem !important;
+	    	display:flex;
 	    	.am-tabs-tab-bar-wrap{
-	    		height: 0;
+	    		height: 0 !important;
+	    		flex: 30% !important;
 	    		.am-tabs-default-bar-tab{
 	    			height: 1.28rem !important;
 	    			width: 2.506667rem !important;
@@ -46,47 +48,53 @@
 	    		}
 	    	}
 
-	    	.am-tabs-pane-wrap {
-	    		height: 100% !important;
-	    		width: 100% !important;
-	    		background-color: #FFF !important;
-	    		.tabs-r{
-	    			height: 100% !important;
-	    			padding:0.213333rem;
-	    			img{
-	    				display:inline-block;
-	    				height: 2.506667rem;
-	    				width: 7.066667rem;
-	    			}
-		    		.tabs_p{
-						margin-top: 0.506667rem;
-					    margin-bottom: 0.56rem;
-					    font-size: 0.32rem;
-					    overflow:hidden;
-					    a{
-					    	float:right;
-					    	color:#232323;
-					    }
-		    		}
-		    		ul{
-		    			li{
-		    				float: left;
-						    width: 33.3%;
-						    height: 2.24rem;
-						    text-align: center;
-						    img{
-						    	width: 1.493333rem;
-						    	height: 1.626667rem;
-						    	margin:0 auto;
-						    }
-						    span{
-						    	display:block;
-						    	margin-top:0.066667rem;
-						    }
+			.am-tabs-content-wrap{
+				flex: 70% !important;
+		    	.am-tabs-pane-wrap {
+		    		height: 100% !important;
+		    		width: 100% !important;
+		    		background-color: #FFF !important;
+		    		.tabs-r{
+		    			height: 100% !important;
+		    			padding:0.213333rem;
+		    			.tabs-r1{
+		    				width: 7.066667rem;
 		    			}
+		    			img{
+		    				display:inline-block;
+		    				height: 2.506667rem;
+		    				width: 7.066667rem;
+		    			}
+			    		.tabs_p{
+							margin-top: 0.506667rem;
+						    margin-bottom: 0.56rem;
+						    font-size: 0.32rem;
+						    overflow:hidden;
+						    a{
+						    	float:right;
+						    	color:#232323;
+						    }
+			    		}
+			    		ul{
+			    			li{
+			    				float: left;
+							    width: 33.3%;
+							    height: 2.24rem;
+							    text-align: center;
+							    img{
+							    	width: 1.493333rem;
+							    	height: 1.626667rem;
+							    	margin:0 auto;
+							    }
+							    span{
+							    	display:block;
+							    	margin-top:0.066667rem;
+							    }
+			    			}
+			    		}
 		    		}
-	    		}
-	    	}
+		    	}
+			}
 	    }
 	}
 	.classify_f{

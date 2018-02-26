@@ -67,12 +67,34 @@
 	    flex-direction: column;
 	    background-color: #eee;
 		padding:0 0.266667rem;
-		.content{
-			
-			margin-bottom:0.4rem;
-			.content_li{
-				font-size:0.48rem;
+		.content_p{
+			font-weight:bold;
+			font-size: 0.4rem;
+		    padding: 0.2rem;
+		    font-size:0.48rem;
+		    span{
+		    	display:inline-block;
+		    	padding:0 0.066667rem;
+				border:0.026667rem solid #aaa;
+				margin:0.08rem;
+		    }
+		}
+		.content_div{
+			height: 2.4rem;
+			width: 100%;
+			li{
+				float:left;
+				width: 30%;
+				padding:0.133333rem 0;
+				margin:1.5%;
+				border:0.026667rem solid #aaa;
+				text-align:center;
+				font-size:0.4rem;
 			}
+		}
+		.content{
+			margin-bottom:0.4rem;
+			
 			li{
 				font-size:0.4rem;
 				padding:0.2rem;

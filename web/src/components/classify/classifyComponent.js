@@ -69,7 +69,7 @@ class ClassifyComponent extends Component{
 				          
 				         >
 				            <div className="tabs-r" style={{ display: 'flex', justifyContent: 'center'}}>
-				             	<div >
+				             	<div className="tabs-r1">
 				             		<img src={this.state.imgs[0]} />
 				             		<p  className="tabs_p">用途<a href="#" >鲜花排行榜 &gt;</a></p>
 									<ul>
@@ -90,7 +90,7 @@ class ClassifyComponent extends Component{
 				             	</div>
 				            </div>
 				            <div className="tabs-r" style={{ display: 'flex', justifyContent: 'center'}}>
-				             	<div>
+				             	<div className="tabs-r1">
 				             		<img src={this.state.imgs[1]} />
 				             		<p  className="tabs_p">永生花<a href="#" >永生花排行榜 &gt;</a></p>
 				             		<ul>
@@ -112,7 +112,7 @@ class ClassifyComponent extends Component{
 				            	
 				            </div>
 				            <div className="tabs-r" style={{ display: 'flex', justifyContent: 'center'}}>
-				              	<div>
+				              	<div className="tabs-r1">
 				             		<img src={this.state.imgs[2]} />
 				             		<p  className="tabs_p">精选品牌蛋糕</p>
 				             		<ul>
@@ -134,7 +134,7 @@ class ClassifyComponent extends Component{
 
 				            </div>
 				            <div className="tabs-r" style={{ display: 'flex', justifyContent: 'center'}}>
-				              	<div>
+				              	<div className="tabs-r1">
 				             		<img src={this.state.imgs[3]} />
 				             		<p  className="tabs_p">巧克力<a href="#" >巧克力排行榜 &gt;</a></p>
 				             		<ul>
@@ -156,7 +156,7 @@ class ClassifyComponent extends Component{
 				             	</div>
 				            </div>
 				            <div className="tabs-r" style={{ display: 'flex', justifyContent: 'center'}}>
-				              	<div>
+				              	<div className="tabs-r1">
 				             		<img src={this.state.imgs[4]} />
 				             		<p  className="tabs_p">礼品分类<a href="#" >特色礼品排行榜 &gt;</a></p>
 				             		<ul>

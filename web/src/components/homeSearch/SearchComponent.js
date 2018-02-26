@@ -8,19 +8,40 @@ import './Search.scss'
 
 const alert = Modal.alert;
 
-
 class HomeSearchs extends Component{
 	componentWillMount(){
 
+		if(localStorage.getItem('key')){
+			this.state.data2 = JSON.parse(localStorage.getItem('key'));
+		}
+	  
+	}
+	componentDidMount(){
+	
 	}
 	state={
-		keyword:''
+		data2:[],
+		hotContent:['鲜花','永生花','郁金香','玫瑰','礼品']
 	}
 	goSearch(){
 		var keyword = this.refs.myTextInput.value;
-		console.log(keyword);
+	
+		if(localStorage.getItem('key')){
+			var data1 = JSON.parse(localStorage.getItem('key'));
+			
+			if(data1.indexOf(keyword) == -1){
+				data1.unshift(keyword);
+			}
+		}else{
+			var data1=[];
+			data1.push(keyword);
+		}
+		this.state.data2 = data1;
+		localStorage.setItem('key', JSON.stringify(data1));
+		
+
 		this.props.getSearch(keyword).then((res)=>{
-			console.log(res.results.length)
+			
 			if(res.results.length > 0){
 
 				 this.props.router.push({
@@ -39,13 +60,30 @@ class HomeSearchs extends Component{
                   },
                 ])
 			}
+
 		});
+
+		// var element = React.findDOMNode(this.refs.element);
+		// var lis = React.createElement('li',null,keyword);
+		// var root = React.createElement('ul', { className: 'my-list'}, lis);
+		// element.inserBefore(lis);
+	}
+	delete(){
+		localStorage.removeItem('key');
+		this.setState({data2:[]});
 	}
 	goBack(){
 		history.go(-1);
 	}
+	goGoodslist(goodsname){
+		this.props.getSearch(goodsname).then((res)=>{
+			this.props.router.push({
+	            pathname:'goodslist',
+	            state:{keyword:res.results[0].type}
+	        })
+		});
+	}
 	render(){
-		
 		return(
 			<div className="searchs">
 				<div className="seach_heah">
@@ -61,13 +99,23 @@ class HomeSearchs extends Component{
 				</div>
 				
 				<div className="seach_main">
-					<ul className="content">
-						<li className="content_li">热门搜索:</li>
-						<li>鲜花</li>
-						<li>玫瑰</li>
-						<li>爱情鲜花</li>
+					<p className="content_p">热门搜索 :</p>
+					<ul  className="content_div" >
+						{
+							this.state.hotContent.map((item,index)=>{
+								return <li onClick={this.goGoodslist.bind(this,item)} >{item}</li>
+
+							})
+						}
 					</ul>
-					<div className="jilu"><span>清除历史记录</span></div>
+					<ul className="content" ref="element">
+						{
+							this.state.data2.map((item,index)=>{
+								return <li>{item}</li>
+							})
+						}
+					</ul>
+					<div className="jilu" onClick={this.delete.bind(this)}><span>清除历史记录</span></div>
 				</div>
 			</div>
 
